@@ -1,8 +1,10 @@
 main:
   - title: "Архив"
     url: /year-archive/
-  - title: "По категориям"
+  - title: "Разделы"
     url: /categories/
+  - title: "Теги"
+    url: /tags/
   
 sidebar-sample:
   - title: "СЕТЬ ОПЕРАТОРА СВЯЗИ:"
