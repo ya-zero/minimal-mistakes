@@ -1,7 +1,7 @@
 main:
-  - title: "Posts archive"
+  - title: "Архив"
     url: /year-archive/
-  - title: "Categories"
+  - title: "По категориям"
     url: /categories/
   
 sidebar-sample:
