@@ -26,7 +26,7 @@ sidebar-sample:
   - title: "MIKROTIK ROUTEROS:"
     children:
       - title: "- winboxexploit изучаем сеть провайдера"
-        url: https://ya-zero.github.io/mikrotik/mikrotik_exploit/
+        url: /mikrotik/mikrotik_exploit/
   - title: "ИНСТРУМЕНТЫ КОТОРЫМИ ПОЛЬЗУЕТСЯ ОПЕРАТОР:"
     children:
       - title: "- AS-STATS"
