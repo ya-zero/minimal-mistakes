@@ -13,27 +13,27 @@ main:
 sidebar-sample:
   - title: **"СЕТЬ ОПЕРАТОРА СВЯЗИ"**
     children:
-      - title: "ч1.Nat server "
+      - title: "- ч1.Nat server "
         url: /
-      - title: "ч2.Bras accel-ppp "
+      - title: "- ч2.Bras accel-ppp "
         url: /
-      - title: "ч3. L2/L3 switch "
+      - title: "- ч3. L2/L3 switch "
         url: /
-      - title: "ч4. Billing "
+      - title: "- ч4. Billing "
         url: /
-      - title: "ч5. Схема сети"
+      - title: "- ч5. Схема сети"
         url: /
   - title: **"MIKROTIK ROUTEROS"**
     children:
-      - title: "winboxexploit изучаем сеть провайдера"
+      - title: "- winboxexploit изучаем сеть провайдера"
         url: /
   - title: **"ИНСТРУМЕНТЫ КОТОРЫМИ ПОЛЬЗУЕТСЯ ОПЕРАТОР"**
     children:
-      - title: "AS-STATS"
+      - title: "- AS-STATS"
         url: /
-      - title: "NfSen"
+      - title: "- NfSen"
         url: /
-      - title: "FastNetmon"
+      - title: "- FastNetmon DDOS "
         url: /
-      - title: "Python/Bash scipt"
+      - title: "- Python/Bash scipt"
         url: /
