@@ -27,7 +27,7 @@ sidebar-sample:
     children:
       - title: "winboxexploit изучаем сеть провайдера"
         url: /
-   - title: "Инструменты которыми полузется оператор связи."
+  - title: "Инструменты которыми полузется оператор связи."
       - title: "AS-STATS"
         url: /
       - title: "NfSen"
