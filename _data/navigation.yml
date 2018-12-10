@@ -7,9 +7,9 @@ main:
 sidebar-sample:
   - title: "СЕТЬ ОПЕРАТОРА СВЯЗИ:"
     children:
-      - title: "- ч1.Nat server "
+      - title: "- ч1. Nat server "
         url: /
-      - title: "- ч2.Bras accel-ppp "
+      - title: "- ч2. Bras accel-ppp "
         url: /
       - title: "- ч3. L2/L3 switch "
         url: /
