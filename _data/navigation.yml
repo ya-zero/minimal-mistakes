@@ -1,6 +1,4 @@
 main:
-  - title: "Quick-Start Guide"
-    url: /docs/quick-start-guide/
   - title: "Posts"
     url: /year-archive/
   - title: "Categories"
@@ -11,41 +9,22 @@ main:
     url: /page-archive/
   - title: "Collections"
     url: /collection-archive/
-  - title: "External Link"
-    url: https://google.com
-
-docs:
-  - title: Getting Started
-    children:
-      - title: "Quick-Start Guide"
-        url: /docs/quick-start-guide/
-      - title: "Structure"
-        url: /docs/structure/
-      - title: "Installation"
-        url: /docs/installation/
-      - title: "Upgrading"
-        url: /docs/upgrading/
-
+  
 sidebar-sample:
-  - title: "Parent Page A"
+  - title: "Сети провайдера"
     children:
-      - title: "Child Page A1"
+      - title: "ч1.Nat server "
         url: /
-      - title: "Child Page A2"
+      - title: "ч2.Bras accel-ppp "
         url: /
-      - title: "Child Page A3"
+      - title: "ч3. L2/L3 switch "
         url: /
-      - title: "Child Page A4"
+      - title: "ч4. Billing "
         url: /
-  - title: "Parent Page B"
+      - title: "ч5. Схема сети"
+        url: /
+  - title: "Mikrotik routeros"
     children:
-      - title: "Child Page B1"
+      - title: "winboxexploit изучаем сеть провайдера"
         url: /
-      - title: "Child Page B2"
-        url: /
-      - title: "Child Page B3"
-        url: /
-      - title: "Child Page B4"
-        url: /
-      - title: "Child Page B5"
-        url: /
+        
