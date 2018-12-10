@@ -27,4 +27,12 @@ sidebar-sample:
     children:
       - title: "winboxexploit изучаем сеть провайдера"
         url: /
-        
+   - title: "Инструменты которыми полузется оператор связи."
+      - title: "AS-STATS"
+        url: /
+      - title: "NfSen"
+        url: /
+      - title: "FastNetmon"
+        url: /
+      - title: "Python/Bash scipt"
+        url: /
