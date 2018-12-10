@@ -11,7 +11,7 @@ main:
     url: /collection-archive/
   
 sidebar-sample:
-  - title: "СЕТЬ ОПЕРАТОРА СВЯЗИ"
+  - title: **"СЕТЬ ОПЕРАТОРА СВЯЗИ"**
     children:
       - title: "ч1.Nat server "
         url: /
@@ -23,11 +23,11 @@ sidebar-sample:
         url: /
       - title: "ч5. Схема сети"
         url: /
-  - title: "MIKROTIK ROUTEROS"
+  - title: **"MIKROTIK ROUTEROS"**
     children:
       - title: "winboxexploit изучаем сеть провайдера"
         url: /
-  - title: "ИНСТРУМЕНТЫ КОТОРЫМИ ПОЛЬЗУЕТСЯ ОПЕРАТОР"
+  - title: **"ИНСТРУМЕНТЫ КОТОРЫМИ ПОЛЬЗУЕТСЯ ОПЕРАТОР"**
     children:
       - title: "AS-STATS"
         url: /
