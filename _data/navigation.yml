@@ -1,14 +1,8 @@
 main:
-  - title: "Posts archeve"
-    url: /year-archive/
+  - title: "Posts archive"
+    url: /
   - title: "Categories"
     url: /categories/
-  - title: "Tags"
-    url: /tags/
-  - title: "Pages"
-    url: /page-archive/
-  - title: "Collections"
-    url: /collection-archive/
   
 sidebar-sample:
   - title: "СЕТЬ ОПЕРАТОРА СВЯЗИ:"
