@@ -29,6 +29,8 @@ sidebar-sample:
         url: /mikrotik/mikrotik_exploit/
   - title: "ИНСТРУМЕНТЫ КОТОРЫМИ ПОЛЬЗУЕТСЯ ОПЕРАТОР:"
     children:
+      - title: "- Eve-ng"
+        url: /
       - title: "- AS-STATS"
         url: /
       - title: "- NfSen"
@@ -36,4 +38,6 @@ sidebar-sample:
       - title: "- FastNetmon DDOS "
         url: /
       - title: "- Python/Bash scipt"
+        url: /
+      - title: "- Eve-ng"
         url: /
