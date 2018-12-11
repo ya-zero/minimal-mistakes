@@ -19,7 +19,7 @@ sidebar:
 
 
 Физическое подключение очень простое, обжали кабель и подключили:
--проверим link на коммутаторе:
+- проверим link на коммутаторе:
 
 ```bash
 DES-3010G:4#sh ports 8
@@ -44,6 +44,7 @@ Command: cable_diag ports 8
   8      FE        Link Up       OK                                8
 ```
 -  когда будет трафик можно посмотреть не растут ли ошибки на порту:
+
 ```bash
 DES-3010G:4#show error ports 8
 Command: show error ports 8
