@@ -63,7 +63,7 @@ Command: show error ports 8
 
 ```
 
-все тоде самое можно повторить и на другом вендоре . к примеру на MT
+все тоже самое можно повторить и на другом вендоре . к примеру на MT
 
 ```bash
 [mgmt@MikroTik] > interface ethernet print 
