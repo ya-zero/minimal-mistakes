@@ -117,4 +117,25 @@ Flags: X - disabled, R - running, S - slave
 
 
 
+После подклчюения и наличия трафика будет mac address на порту 
+```
+DES-3010G:4#sh fdb port 8
+Command: show fdb port 8
+
+VID   VLAN Name         MAC Address        Port    Type  
+----  ----------------  -----------------  ----  ---------
+2     vlan2             00-11-95-11-01-84    8    Dynamic
+```
+
+на MT 
+L: mac адрес порта  
+D: изученный адрес на порту 1 (id vlan2)
+```bash 
+[admin@OFFICE] > interface bridge host print 
+Flags: X - disabled, I - invalid, D - dynamic, L - local, E - external 
+ #       MAC-ADDRESS        VID ON-INTERFACE      BRIDGE     AGE                 
+ 0   DL  E4:8D:8C:81:3F:B9      br_DHCP           br_DHCP   
+ 1   D   00:18:51:02:66:01      ether1.2          br_vl2     24s                 
+ 2   D   00:18:51:02:67:01      ether1.2          br_vl2     25s 
+```
 
