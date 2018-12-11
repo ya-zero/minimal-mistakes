@@ -37,13 +37,12 @@ sidebar:
   - на портах в сторону абонента приписываем  только один vlan id  100 типа untagged (иногда называется access)
  
 ```bash 
-config vlan default delete 1-10
-create vlan mgmt tag 10
-config vlan mgmt add tagged 9-10
-create vlan home_10 tag 100
-config vlan home_10 add untagged 1-8
-create vlan home_10 tag 100
-config vlan home_100 add tagged 9-10
+config vlan default delete 1-10 #удалим порты из vlan id 1 name default, если мы работает через порт коммутатора , то исключим его
+create vlan mgmt tag 10  # создаем  vlan  с именем mgmt id 10
+config vlan mgmt add tagged 9-10  # добавляем в mgmt  порты в сторону uplink и в сторону соседнего коммутатора если есть.
+create vlan home_10 tag 100  # создаем  vlan  с именем home_10 id 100 для абонентов
+config vlan home_10 add untagged 1-8 # добавляем порты абонентов в vlan 
+config vlan home_100 add tagged 9-10 # добавляем vlan id100  на транзитные порты  9-10
 ```
 
 После того как настроили vlan mgmt , назначим vlan управления для коммутатора и настроим ip 
