@@ -44,7 +44,7 @@ create vlan home_10 tag 100
 config vlan home_100 add tagged 9-10
 ```
 
-После того как настроили vlan mgmt , нажначим vlan управления для коммутатора и настроим ip 
+После того как настроили vlan mgmt , назначим vlan управления для коммутатора и настроим ip 
 ```bash
 config ipif System vlan mgmt ipaddress 192.168.0.10/24 state enable 
 ```
