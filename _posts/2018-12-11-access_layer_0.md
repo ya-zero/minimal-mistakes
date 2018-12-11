@@ -2,9 +2,9 @@
 title: "ч2.Физическое подключение. Уровень доступа "
 date: 2018-12-11 09:00:00 +0000
 categories:
-  - network
+  - Network
 tags:
-  - access
+  - Access
 sidebar:
   - title: "Сеть оператора"
     text: "Уровень доступа"
