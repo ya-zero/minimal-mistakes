@@ -49,7 +49,7 @@ config vlan home_100 add tagged 9-10
 ```bash
 config ipif System vlan mgmt ipaddress 192.168.0.10/24 state enable 
 ```
-Укажим default router если мы будем заходить из другой подсети.
+Укажим default route если мы будем заходить из другой подсети.
 ```bash
 create iproute default 192.168.0.254 1
 ```
