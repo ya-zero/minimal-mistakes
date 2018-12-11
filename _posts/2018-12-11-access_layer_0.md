@@ -73,15 +73,15 @@ Flags: X - disabled, R - running, S - slave
       ether1            1500 11:11:11:00:00:00 enabled         switch1           
  
 ```
-мы видим что интерфейс в состоянии R активен, и является Slave значит он в bridge
+мы видим что интерфейс в состоянии **R** активен, и **S** является **Slave** значит он в bridge
 
-так можно проверить есть ли проблемы с портом через cable_test:
+так можно проверить есть ли проблемы с портом через **cable_test**:
 ```bash
 [admin@OFFICE] > interface ethernet cable-test ether2
     name: ether2-myPS
   status: link-ok
 ```
-если  есть какая-то проблема с парамиб то вывод будет  вот таким:
+если  есть какая-то проблема с парами то вывод будет  вот таким:
 ```bash
 [admin@OFFICE] > interface ethernet cable-test ether3-WIFI 
          name: ether3-WIFI
