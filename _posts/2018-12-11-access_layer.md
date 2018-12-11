@@ -61,9 +61,59 @@ Command: show error ports 8
 
 ```
 
+все тоде самое можно повторить и на другом вендоре . к примеру на MT
 
+```bash
+[mgmt@MikroTik] > interface ethernet print 
+Flags: X - disabled, R - running, S - slave 
+ #    NAME               MTU MAC-ADDRESS       ARP             SWITCH            
+ 0 RS ;;; abon1
+      ether1            1500 11:11:11:00:00:00 enabled         switch1           
+ 
+```
+мы видим что интерфейс в состоянии R активен, и является Slave значит он в bridge
 
+так можно проверить есть ли проблемы с портом через cable_test:
+```bash
+[admin@OFFICE] > interface ethernet cable-test ether2
+    name: ether2-myPS
+  status: link-ok
+```
+если  есть какаято пробелма с парами то вывод будет  вот таким:
+```bash
+[admin@OFFICE] > interface ethernet cable-test ether3-WIFI 
+         name: ether3-WIFI
+       status: no-link
+  cable-pairs: open:0,open:0,open:0,open:0
+```
 
+счетки на порту , в том числе и ошибки
+```bash
+[admin@OFFICE] > interface ethernet print stats-detail 
+Flags: X - disabled, R - running, S - slave 
+ 0 RS ;;; okkkk
+      name="ether1-WAN" driver-rx-byte=4 047 778 296 driver-rx-packet=8 803 882 
+      driver-tx-byte=699 139 710 driver-tx-packet=2 272 196 
+      rx-bytes=4 088 785 855 rx-too-short=0 rx-64=3 730 311 rx-65-127=2 005 089 
+      rx-128-255=518 637 rx-256-511=167 531 rx-512-1023=42 450 
+      rx-1024-1518=690 482 rx-1519-max=1 653 182 rx-too-long=0 
+      rx-broadcast=4 810 926 rx-pause=0 rx-multicast=984 933 rx-fcs-error=0 
+      rx-align-error=0 rx-fragment=0 rx-overflow=0 tx-bytes=708 857 177 
+      tx-64=80 681 tx-65-127=1 660 919 tx-128-255=117 564 tx-256-511=19 804 
+      tx-512-1023=33 678 tx-1024-1518=344 125 tx-1519-max=15 407 tx-too-long=0 
+      tx-broadcast=151 641 tx-pause=0 tx-multicast=143 321 tx-underrun=0 
+      tx-collision=0 tx-excessive-collision=0 tx-multiple-collision=0 
+      tx-single-collision=0 tx-excessive-deferred=0 tx-deferred=0 
+      tx-late-collision=0 tx-queue0-packet=2 268 633 tx-queue0-byte=708 289 977 
+      tx-queue1-packet=3 545 tx-queue1-byte=567 200 tx-queue2-packet=0 
+      tx-queue2-byte=0 tx-queue3-packet=0 tx-queue3-byte=0 tx-queue4-packet=0 
+      tx-queue4-byte=0 tx-queue5-packet=0 tx-queue5-byte=0 tx-queue6-packet=0 
+      tx-queue6-byte=0 tx-queue7-packet=0 tx-queue7-byte=0 
+      tx-all-queue-drop-packet=0 tx-all-queue-drop-byte=0 
+      tx-queue-custom0-drop-packet=0 tx-queue-custom0-drop-byte=0 
+      tx-queue-custom1-drop-packet=0 tx-queue-custom1-drop-byte=0 
+      policy-drop-packet=0 custom-drop-packet=0 current-learned=0 
+```
 
 
 
