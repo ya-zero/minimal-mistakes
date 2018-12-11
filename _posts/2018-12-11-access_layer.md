@@ -119,7 +119,7 @@ Flags: X - disabled, R - running, S - slave
 
 
 
-После подклчюения и наличия трафика будет mac address на порту 
+После физ. подключения и наличия трафика на коммутаторе будет изучен mac address на порту (а можно сделать и привязку к mac/port , создав статичскую запись)
 ```
 DES-3010G:4#sh fdb port 8
 Command: show fdb port 8
