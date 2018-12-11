@@ -81,7 +81,7 @@ Flags: X - disabled, R - running, S - slave
     name: ether2-myPS
   status: link-ok
 ```
-если  есть какаято пробелма с парами то вывод будет  вот таким:
+если  есть какая-то проблема с парамиб то вывод будет  вот таким:
 ```bash
 [admin@OFFICE] > interface ethernet cable-test ether3-WIFI 
          name: ether3-WIFI
@@ -89,7 +89,7 @@ Flags: X - disabled, R - running, S - slave
   cable-pairs: open:0,open:0,open:0,open:0
 ```
 
-счетки на порту , в том числе и ошибки
+проверим счетки на порту , в том числе и ошибки
 ```bash
 [admin@OFFICE] > interface ethernet print stats-detail 
 Flags: X - disabled, R - running, S - slave 
