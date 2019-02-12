@@ -26,7 +26,7 @@ tags:
 /etc/zabbix/zabbix_agentd.conf
 Server = 10.1.1.1 , 192.168.0.1
 
-Добавляем хост в zabbix , и создаем элементы данных
+Добавляем хост в zabbix , и создаем элементы данных:
 ```bash
 тип : Zabbix agent 
 ключ : vfs.file.size[/srv/tftp/core/cisco.cfg]
