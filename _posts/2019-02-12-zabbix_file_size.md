@@ -49,7 +49,7 @@ Server = 10.1.1.1 , 192.168.0.1
 {srv_CT_172.20.103.206_freeradius:vfs.file.time[/srv/tftp/core/cisco.cfg,modify].now()}-{srv_CT_172.20.103.206_freeradius:vfs.file.time[/srv/tftp/core/cisco.cfg,modify].last()}>86400
 ```
 
-P.S. как нам узнать сработает наш алер или нет.   
+P.S. как нам узнать сработает наш trigger alert или нет.   
 Меням дату файла , и ждем alert.
 ```bash
 touch -mad "2000-01-01 01:00:00" ./cisco.cfg
