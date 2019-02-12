@@ -22,7 +22,7 @@ tags:
 
 ### Мониторинг успешного создания файла  и его изменения.
 
-Настривает zabbix_agent на сервере,  открывает доступ для zabbix server
+Настривает zabbix_agent на хост машине,  открывает доступ для zabbix server
 /etc/zabbix/zabbix_agentd.conf
 Server = 10.1.1.1 , 192.168.0.1
 
