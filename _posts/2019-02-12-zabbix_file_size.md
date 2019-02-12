@@ -17,7 +17,7 @@ tags:
 (config)#kron policy-list SaveConfig
 (config-kron-policy)#cli show run | redirect tftp://172.20.103.206/core/cisco.cfg
 ```
-
+> За историей изменений следит git 
 
 
 ### Мониторинг успешного создания файла  и его изменения.
