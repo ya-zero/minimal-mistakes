@@ -59,3 +59,4 @@ touch -mad "2000-01-01 01:00:00" ./cisco.cfg
 UPD.
 
  https://habr.com/en/sandbox/125682/
+ https://www.linux.org.ru/forum/general/1825069
