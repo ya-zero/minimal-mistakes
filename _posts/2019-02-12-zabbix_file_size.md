@@ -56,4 +56,6 @@ touch -mad "2000-01-01 01:00:00" ./cisco.cfg
 ```
 
 
-https://habr.com/en/sandbox/125682/
+UPD.
+
+ https://habr.com/en/sandbox/125682/
