@@ -1,4 +1,10 @@
-
+---
+title: "nmap dns-recursion"
+date: 2019-02-15 09:00:00 +0000
+categories:
+  - dns recursion
+tags:
+  - dns recursion
 Запрос.
 ```bash
 nmap -sU -sV -p 53 --script dns-recursion   1.1.1.1/16
