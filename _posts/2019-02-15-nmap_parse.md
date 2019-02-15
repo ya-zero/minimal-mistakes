@@ -22,6 +22,21 @@ PORT   STATE SERVICE
 Как распарсить , в удобочитаемом виде
 
 grep -A 2 -B 2 "dns-rec" ./result 
+```bash
+--
+PORT   STATE SERVICE
+53/udp open  domain
+|_dns-recursion: Recursion appears to be enabled
+
+Nmap scan report for 1-1-1-1.reinfokom.ru (1.1.1.1)
+--
+PORT   STATE SERVICE
+53/udp open  domain
+|_dns-recursion: Recursion appears to be enabled
+
+Nmap scan report for 2.1.1.1.reinfokom.ru (1.1.1.2)
+--
+```
 
 
 источник https://unix.stackexchange.com/questions/82944/how-to-grep-for-text-in-a-file-and-display-the-paragraph-that-has-the-text
