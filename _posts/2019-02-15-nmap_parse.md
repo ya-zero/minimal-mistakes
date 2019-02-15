@@ -5,7 +5,7 @@ categories:
   - dns recursion
 tags:
   - dns recursion
- ---
+---
 Запрос.
 ```bash
 nmap -sU -sV -p 53 --script dns-recursion   1.1.1.1/16
