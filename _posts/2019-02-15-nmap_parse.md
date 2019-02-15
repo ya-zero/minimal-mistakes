@@ -38,7 +38,9 @@ PORT   STATE SERVICE
 
 Как распарсить , в удобочитаемом виде
 
-grep -A 2 -B 2 "dns-rec" ./result 
+ grep -A 2 -B 2 "dns-rec" ./result 
+ или
+ grep -B 4 "dns-rec" ./result 
 ```bash
 --
 PORT   STATE SERVICE
