@@ -36,10 +36,12 @@ PORT   STATE SERVICE
 ```
 
 Как распарсить , в удобочитаемом виде
-
+```bash 
  -- grep -A 2 -B 2 "dns-rec" ./result 
  или
  -- grep -B 4 "dns-rec" ./result 
+```
+
 ```bash
  PORT   STATE SERVICE
  53/udp open  domain
