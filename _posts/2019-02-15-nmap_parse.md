@@ -33,7 +33,6 @@ Host is up (0.015s latency).
 PORT   STATE SERVICE
 53/udp open  domain
 |_dns-recursion: Recursion appears to be enabled
-
 ```
 
 Как распарсить , в удобочитаемом виде
@@ -42,19 +41,19 @@ PORT   STATE SERVICE
  или
  - grep -B 4 "dns-rec" ./result 
 ```bash
---
-PORT   STATE SERVICE
-53/udp open  domain
-|_dns-recursion: Recursion appears to be enabled
+ --
+ PORT   STATE SERVICE
+ 53/udp open  domain
+ |_dns-recursion: Recursion appears to be enabled
 
-Nmap scan report for 1-1-1-1.reinfokom.ru (1.1.1.1)
---
-PORT   STATE SERVICE
-53/udp open  domain
-|_dns-recursion: Recursion appears to be enabled
+ Nmap scan report for 1-1-1-1.reinfokom.ru (1.1.1.1)
+ --
+ PORT   STATE SERVICE
+ 53/udp open  domain
+ |_dns-recursion: Recursion appears to be enabled
 
-Nmap scan report for 2.1.1.1.reinfokom.ru (1.1.1.2)
---
+ Nmap scan report for 2.1.1.1.reinfokom.ru (1.1.1.2)
+ --
 ```
 
 
