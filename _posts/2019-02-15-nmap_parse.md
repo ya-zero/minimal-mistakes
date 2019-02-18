@@ -37,17 +37,16 @@ PORT   STATE SERVICE
 
 Как распарсить , в удобочитаемом виде
 
- - grep -A 2 -B 2 "dns-rec" ./result 
+ -- grep -A 2 -B 2 "dns-rec" ./result 
  или
- - grep -B 4 "dns-rec" ./result 
+ -- grep -B 4 "dns-rec" ./result 
 ```bash
- 
  PORT   STATE SERVICE
  53/udp open  domain
  |_dns-recursion: Recursion appears to be enabled
 
- Nmap scan report for 1-1-1-1.reinfokom.ru (1.1.1.1)
- 
+Nmap scan report for 1-1-1-1.reinfokom.ru (1.1.1.1)
+
  PORT   STATE SERVICE
  53/udp open  domain
  |_dns-recursion: Recursion appears to be enabled
