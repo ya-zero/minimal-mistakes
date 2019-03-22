@@ -1,3 +1,12 @@
+---
+title: "Мониторинг ospf соседей демона ospfd по snmp "
+date: 2018-12-05 09:52:51 +0000
+categories:
+  - snmp
+tags:
+  - quagga frrouting snmp agentx
+---
+
 в snmpd.conf добавил (если нужно весь скину.)
 
 agentAddress  udp:127.0.0.1:161
