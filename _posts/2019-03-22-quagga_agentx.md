@@ -1,6 +1,6 @@
 ---
 title: "Мониторинг ospf соседей демона ospfd по snmp "
-date: 2018-12-05 09:52:51 +0000
+date: 2019-03-22 00:52:51 +0000
 categories:
   - snmp
 tags:
