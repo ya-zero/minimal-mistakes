@@ -52,3 +52,10 @@ snmpd       865 Debian-snmp   11u  IPv4 93698052      0t0  TCP 127.0.0.1:705 (LI
 snmpd       865 Debian-snmp   12u  IPv4 93698066      0t0  TCP 127.0.0.1:705->127.0.0.1:51502 (ESTABLISHED)
 ospfd     14290         frr   19u  IPv4 93693088      0t0  TCP 127.0.0.1:51502->127.0.0.1:705 (ESTABLISHED)
 ```
+
+
+
+https://www.nongnu.org/quagga/docs/docs-multi/AgentX-configuration.html
+http://docs.frrouting.org/en/latest/snmp.html#getting-and-installing-an-snmp-agent
+https://github.com/FRRouting/frr/blob/master/doc/user/snmp.rst
+http://cric.grenoble.cnrs.fr/Administrateurs/Outils/MIBS/?oid=1.3.6.1.2.1.14
