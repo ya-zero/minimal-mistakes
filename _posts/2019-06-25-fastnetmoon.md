@@ -28,10 +28,13 @@ exabgp_announce_host = on
 echo "announce route 10.10.10.123/32 next-hop 10.0.3.114 community 65002:555" > /var/run/exabgp.cmd
 ```
 удаление адреса:
-echo "withdraw route 10.10.10.123/32" > /var/run/exabgp.cmd
 
+```bash
+echo "withdraw route 10.10.10.123/32" > /var/run/exabgp.cmd
+```
 
 Что я прописывал на стороне шлюза:
+
 ```bash
 router bgp 65002
 bgp confederation identifier 43465
