@@ -99,6 +99,7 @@ Origin codes:  i - IGP, e - EGP, ? - incomplete
 *> 195.178.23.0/24  0.0.0.0                  0         32768 i
 *>i195.178.23.1/32  192.168.0.43                  100      0 i
 ```
+
 ```bash
 sh ip bgp 195.178.23.1
 BGP routing table entry for 195.178.23.1/32
