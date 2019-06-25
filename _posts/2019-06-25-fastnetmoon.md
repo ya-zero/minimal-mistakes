@@ -75,9 +75,10 @@ route-map map-AS12389_out permit 100
  match ip address prefix-list reinfokom
  set as-path prepend 43465
  set community 12389:6991 additive
-
+```
 
 проверям.
+
 ```bash
 sh ip bgp route-map map-AS12389_out
 BGP table version is 21656955, local router ID is 195.178.23.254, vrf id 0
@@ -94,7 +95,8 @@ Origin codes:  i - IGP, e - EGP, ? - incomplete
 *> 195.178.22.0/24  0.0.0.0                  0         32768 i
 *> 195.178.23.0/24  0.0.0.0                  0         32768 i
 *>i195.178.23.1/32  192.168.0.43                  100      0 i
-
+```
+```bash
 sh ip bgp 195.178.23.1
 BGP routing table entry for 195.178.23.1/32
 Paths: (1 available, best #1, table Default-IP-Routing-Table)
@@ -122,9 +124,9 @@ Origin codes:  i - IGP, e - EGP, ? - incomplete
 *> 195.178.22.0/24  0.0.0.0                  0         32768 43465 i
 *> 195.178.23.0/24  0.0.0.0                  0         32768 43465 i
 *> 195.178.23.1/32  0.0.0.0                       100      0 i
-
 ```
 заходим на http://lg.ip.rt.ru/
+
 ```bash
 195.178.23.1/32    unreachable [sr2 15:12:28 from 217.107.65.1] * (100/-) [AS43465i]
 	Type: BGP unicast univ
@@ -137,6 +139,3 @@ Origin codes:  i - IGP, e - EGP, ? - incomplete
 	BGP.originator_id: 95.167.89.49
 	BGP.cluster_list: 95.167.88.79 95.167.88.49 213.59.207.197 81.177.113.79
 ```
-
-
-
