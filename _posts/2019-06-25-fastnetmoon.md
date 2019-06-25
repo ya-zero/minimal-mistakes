@@ -112,7 +112,9 @@ Paths: (1 available, best #1, table Default-IP-Routing-Table)
       Community: 65002:555
       AddPath ID: RX 0, TX 13980539
       Last update: Tue Jun 25 15:05:39 2019
+```
 
+```bash
 sh ip bgp neighbors 188.128.49.221 advertised-routes 
 BGP table version is 21660769, local router ID is 195.178.23.254, vrf id 0
 Status codes:  s suppressed, d damped, h history, * valid, > best, = multipath,
