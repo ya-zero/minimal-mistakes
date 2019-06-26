@@ -145,3 +145,48 @@ Origin codes:  i - IGP, e - EGP, ? - incomplete
 	BGP.originator_id: 95.167.89.49
 	BGP.cluster_list: 95.167.88.79 95.167.88.49 213.59.207.197 81.177.113.79
 ```
+
+P.S.  example ddos attak
+```console
+IP: 195.178.22.106
+Attack type: udp_flood
+Initial attack power: 37753 packets per second
+Peak attack power: 37753 packets per second
+Attack direction: incoming
+Attack protocol: udp
+Total incoming traffic: 502 mbps
+Total outgoing traffic: 0 mbps
+Total incoming pps: 37753 packet
+UDP flows: 4204
+195.178.22.106:46 < 109.245.238.121:53 2247 bytes 1 packets
+195.178.22.106:222 < 177.184.88.2:53 2230 bytes 1 packets
+195.178.22.106:306 < 179.108.187.10:53 34298 bytes 11 packets
+195.178.22.106:306 < 191.91.240.86:53 17232 bytes 12 packets
+195.178.22.106:306 < 148.63.75.116:53 31458 bytes 14 packets
+195.178.22.106:306 < 177.200.83.132:53 24717 bytes 11 packets
+195.178.22.106:306 < 24.196.254.136:53 33594 bytes 11 packets
+195.178.22.106:306 < 59.124.30.190:53 8640 bytes 9 packets
+195.178.22.106:306 < 103.111.57.210:53 24717 bytes 11 packets
+195.178.22.106:306 < 95.141.128.216:53 9927 bytes 9 packets
+195.178.22.106:733 < 94.199.98.47:53 13233 bytes 11 packets
+195.178.22.106:733 < 186.194.108.69:53 12480 bytes 13 packets
+195.178.22.106:733 < 1.160.225.78:53 18668 bytes 13 packets
+195.178.22.106:733 < 166.253.145.81:53 24717 bytes 11 packets
+195.178.22.106:733 < 2.188.36.129:53 16394 bytes 14 packets
+ 
+ 
+exabgp: 16996  reactor       Performing dynamic route update
+exabgp: 16996  reactor       Updated peers dynamic routes successfully
+exabgp: 16996  processes     Command from process service-dynamic : withdraw route 195.178.23.1/32
+exabgp: 16996  reactor       Route removed : 195.178.23.1/32 next-hop 0.0.0.0
+exabgp: 16996  reactor       Performing dynamic route update
+exabgp: 16996  reactor       Updated peers dynamic routes successfully
+exabgp: 16996  processes     Command from process service-dynamic : announce route 195.178.22.106/32 next-hop 192.168.0.43 community 65002:555
+exabgp: 16996  reactor       Route added to neighbor 192.168.0.36 local-ip 192.168.0.43 local-as 65002 peer-as 65002 router-id 192.168.0.43 family-allowed in-open : 195.178.22.106/32 next-hop 192.168.0.43 community 65002:555
+exabgp: 16996  reactor       Performing dynamic route update
+exabgp: 16996  reactor       Updated peers dynamic routes successfully
+exabgp: 16996  processes     Command from process service-dynamic : withdraw route 195.178.22.106/32 next-hop 192.168.0.43
+exabgp: 16996  reactor       Route removed : 195.178.22.106/32 next-hop 192.168.0.43
+exabgp: 16996  reactor       Performing dynamic route update
+exabgp: 16996  reactor       Updated peers dynamic routes successfully
+```
