@@ -146,7 +146,7 @@ Origin codes:  i - IGP, e - EGP, ? - incomplete
 	BGP.cluster_list: 95.167.88.79 95.167.88.49 213.59.207.197 81.177.113.79
 ```
 
-P.S.  example ddos attak
+P.S.  example ddos attack
 ```console
 IP: 195.178.22.106
 Attack type: udp_flood
