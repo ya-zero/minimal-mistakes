@@ -40,6 +40,15 @@ router bgp 65002
 bgp confederation identifier 43465
 neighbor 192.168.0.43 remote-as 65002
  address-family ipv4 unicast
+  network 91.197.7x.0/22
+  network 91.197.7x.0/24
+  network 91.197.7x.0/24
+  network 91.197.7x.0/24
+  network 91.197.7x.0/24
+  network 195.178.2x.0/23
+  network 195.178.2x.0/24
+  network 195.178.2x.0/24
+
   # 
   neighbor 192.168.0.43 soft-reconfiguration inbound
   #запрещаем анонс на fastnetmon
