@@ -6,7 +6,7 @@ categories:
   - pppoe
   - nat
   sidebar:
-  - title: "mikrotik cpe gateway"
+   - title: "mikrotik cpe gateway"
 ---
 
 Убираем ether порт из бриджа , из плюсов проблемы с ether портом  такие как заворот и наличие broadcast не будут распостроняться по сети.
