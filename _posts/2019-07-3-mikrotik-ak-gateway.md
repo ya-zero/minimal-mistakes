@@ -13,7 +13,7 @@ categories:
 /interface bridge port
 add bridge=br_vl375 disabled=yes interface=ether1
 
-##настройка dhcp на CPE
+### настройка dhcp на CPE
 
 ### вешаем адрес на интерфейс
 /ip address
