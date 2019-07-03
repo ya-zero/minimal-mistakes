@@ -5,7 +5,7 @@ categories:
   - mikrotik
   - pppoe
   - nat
-  sidebar:
+sidebar:
    - title: "mikrotik cpe gateway"
 ---
 
