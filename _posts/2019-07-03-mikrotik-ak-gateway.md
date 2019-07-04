@@ -58,4 +58,8 @@ add action=dst-nat chain=dstnat dst-address=91.1.1.1 in-interface=pppoe-out1 to-
 add action=src-nat chain=srcnat out-interface=pppoe-out1 src-address=172.16.0.0/24 to-addresses=91.1.1.1.1
 ```
 
-P.S. также можно настроить что dhcp запрос летит по сети до сектора, и выдавать адреса по opt 82.
+P.S. также можно настроить что dhcp  и выдавать адреса по opt 82.
+на mikrotik сервер не делал, но в качестве BRAS был accel-ppp.  В биллинг летит запрос по radius.
+```http
+https://accel-ppp.org/forum/viewtopic.php?f=10&t=2260
+```
