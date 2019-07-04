@@ -78,10 +78,15 @@ UPD.  скрипт для добавления в /system script имя pppoe_an
 :global pppoeclient;
 :set pppoeclient "pppoe_client_int";
 
+:global brpppoe;
+:set brpppoe "br_vl375";
+
+
 :put  $dfnether;
 :put $dhcpserver;
 :put $dhcppool;
 :put $pppoeclient;
+:put $brpppoe;
 ########################################################################
 #disabled old configuration
 
@@ -91,12 +96,12 @@ UPD.  скрипт для добавления в /system script имя pppoe_an
 # POOL
 /ip pool remove numbers=[find name=$dhcppool];
 
-#25 delete old PPPoE_Client
+#string 25 delete old PPPoE_Client
  /interface pppoe-client remove numbers=[find name=$pppoeclient]
 #/interface pppoe-client remove $pppoeclient
 
 #DHCP NETWORK remove
-#/ip dhcp-server network remove n/ip dhcumbers=0;
+#/ip dhcp-server network remove numbers=0;
 /ip dhcp-server network remove numbers=[find address="10.100.0.0/24"]
 
 #######################################################################3
@@ -121,7 +126,7 @@ UPD.  скрипт для добавления в /system script имя pppoe_an
 
 
 #create pppoe-clint
-/interface pppoe-client add add-default-route=yes disabled=no interface=br_vl375 name=$pppoeclient password=admin_test user=admin_test
+/interface pppoe-client add add-default-route=yes disabled=no interface=$brpppoe name=$pppoeclient password=admin_test user=admin_test
 
 #create firewall nat rules 
 /ip firewall nat add action=masquerade chain=srcnat out-interface=$pppoeclient  src-address=10.100.0.0/24
