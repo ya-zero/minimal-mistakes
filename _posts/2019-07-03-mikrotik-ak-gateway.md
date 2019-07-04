@@ -48,14 +48,14 @@ add add-default-route=yes disabled=no interface=br_vl375 name=pppoe-out1 passwor
 add action=masquerade chain=srcnat out-interface=pppoe-out1 src-address=172.16.0.0/24
 ```
 Вариант когда абоненту нужно выдать белый :
-1) оставить pppoe
-2)  сделать src-nat dst-nat , либо привязать клиента как make static , либо ограничить pool
+ 1) оставить pppoe
+ 2) сделать src-nat dst-nat , самого клиента  привязать как make static , либо ограничить pool
 ```bash
 /ip pool
 add name=dhcp_pool0 ranges=172.16.0.254
 /ip firewall nat
 add action=dst-nat chain=dstnat dst-address=91.1.1.1 in-interface=pppoe-out1 to-addresses=172.16.0.254
-add action=src-nat chain=srcnat out-interface=pppoe-out1 src-address=172.16.0.0/24 to-addresses=91.1.1.1.1
+add action=src-nat chain=srcnat out-interface=pppoe-out1 src-address=172.16.0.254 to-addresses=91.1.1.1.1
 ```
 
 P.S. также можно настроить что dhcp  и выдавать адреса по opt 82.
