@@ -61,4 +61,74 @@ add action=src-nat chain=srcnat out-interface=pppoe-out1 src-address=172.16.0.25
 
 P.S. также можно настроить dhcp  выше и  выдавать адреса по opt 82.
 на mikrotik сервер не делал, но в качестве BRAS был accel-ppp.  В биллинг летит запрос по radius [accel-ppp](https://accel-ppp.org/forum/viewtopic.php?f=10&t=2260).
+
+
+UPD.  скрипт для добавления в /system script имя pppoe_and_dhcp
+
+для запуска лучше использовать /system script run pppoe_and_dhcp , так как есть хоть какойто уровень одладки.
+
+```sh
+:global  dfnether [/interface ethernet get [ find default-name="ether1"] name] ;
+:global dhcppool; 
+:set dhcppool "dhcp_ipoe";
+
+:global dhcpserver;
+:set dhcpserver "dhcp_ipoe_server";
+
+:global pppoeclient;
+:set pppoeclient "pppoe_client_int";
+
+:put  $dfnether;
+:put $dhcpserver;
+:put $dhcppool;
+:put $pppoeclient;
+########################################################################
+#disabled old configuration
+
+#DHCP SERVER
+/ip dhcp-server remove numbers=[find name=$dhcpserver]
+
+# POOL
+/ip pool remove numbers=[find name=$dhcppool];
+
+#25 delete old PPPoE_Client
+ /interface pppoe-client remove numbers=[find name=$pppoeclient]
+#/interface pppoe-client remove $pppoeclient
+
+#DHCP NETWORK remove
+#/ip dhcp-server network remove n/ip dhcumbers=0;
+/ip dhcp-server network remove numbers=[find address="10.100.0.0/24"]
+
+#######################################################################3
+
+# del ether1 intreface fron bridge 
+/interface bridge port set disabled=yes   numbers=[find interface ~ $dfnether] 
+
+# disable address on ether1
+/ip address set disabled=yes numbers=[find interface ~ $dfnether]
+
+# add ip address to ether1
+/ip address add address=10.100.0.1/24 interface=$dfnether network=10.100.0.0
+
+#create pool
+/ip pool add name=$dhcppool ranges=10.100.0.2-10.100.0.254
+
+#create network for access
+/ip dhcp-server network add address=10.100.0.0/24 dns-server=1.1.1.1,8.8.8.8 gateway=10.100.0.1
+
+#creade dhcp server
+/ip dhcp-server add address-pool=$dhcppool disabled=no interface=$dfnether name=$dhcpserver
+
+
+#create pppoe-clint
+/interface pppoe-client add add-default-route=yes disabled=no interface=br_vl375 name=$pppoeclient password=admin_test user=admin_test
+
+#create firewall nat rules 
+/ip firewall nat add action=masquerade chain=srcnat out-interface=$pppoeclient  src-address=10.100.0.0/24
+
+#change station bridge -> station
+#/interface wireless set mode=station numbers=[find name ~"wlan"]
+```
+
+
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53515717, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53515717" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
