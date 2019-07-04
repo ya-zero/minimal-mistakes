@@ -14,25 +14,25 @@ sidebar:
 /interface bridge port
 add bridge=br_vl375 disabled=yes interface=ether1
 ```
-Настройка dhcp на CPE
+##Настройка dhcp на CPE
 
-Вешаем адрес на интерфейс
+Вешаем адрес на интерфейс:
 ```bash
 /ip address
 add address=172.16.0.1/24 interface=ether1 network=172.16.0.0
 ```
 
-Создаем диапазон из которого брать адреса  для выдачи
+Создаем диапазон из которого брать адреса  для выдачи:
 ```bash
 /ip pool
 add name=dhcp_pool0 ranges=172.16.0.2-172.16.0.254
 ```
-Вешаем dhcp server на ether1 
+Вешаем dhcp server на ether1:
 ```bash
 /ip dhcp-server
 add address-pool=dhcp_pool0 disabled=no interface=ether1 name=dhcp
 ```
-Указываем из какой сети выдавать
+Указываем из какой сети выдавать:
 ```bash
 /ip dhcp-server network
 add address=172.16.0.0/24 dns-server=1.1.1.1,8.8.8.8 gateway=172.16.0.1
@@ -42,7 +42,7 @@ add address=172.16.0.0/24 dns-server=1.1.1.1,8.8.8.8 gateway=172.16.0.1
 /interface pppoe-client
 add add-default-route=yes disabled=no interface=br_vl375 name=pppoe-out1 password=admin_test user=admin_test
 ```
-Добавили правило для nat трансляции адресов
+Добавили правило для nat трансляции адресов:
 ```bash
 /ip firewall nat
 add action=masquerade chain=srcnat out-interface=pppoe-out1 src-address=172.16.0.0/24
