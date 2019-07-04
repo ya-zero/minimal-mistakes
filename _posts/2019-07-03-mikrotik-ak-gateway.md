@@ -61,4 +61,4 @@ add action=src-nat chain=srcnat out-interface=pppoe-out1 src-address=172.16.0.25
 
 P.S. также можно настроить dhcp  выше и  выдавать адреса по opt 82.
 на mikrotik сервер не делал, но в качестве BRAS был accel-ppp.  В биллинг летит запрос по radius [accel-ppp](https://accel-ppp.org/forum/viewtopic.php?f=10&t=2260).
-
+<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53515717, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53515717" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
