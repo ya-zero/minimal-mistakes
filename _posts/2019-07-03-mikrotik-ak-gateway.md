@@ -62,5 +62,5 @@ add action=src-nat chain=srcnat out-interface=pppoe-out1 src-address=172.16.0.25
 P.S. также можно настроить dhcp  выше и  выдавать адреса по opt 82.
 на mikrotik сервер не делал, но в качестве BRAS был accel-ppp.  В биллинг летит запрос по radius.
 
-[https://accel-ppp.org/forum/viewtopic.php?f=10&t=2260][accel-ppp forum]
+[accel-ppp forum](https://accel-ppp.org/forum/viewtopic.php?f=10&t=2260)
 
