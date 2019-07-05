@@ -73,9 +73,9 @@ loopback-detection control block
  - создание vlan и description
 ```sh
  #{% for vlan, name in vlans.items() %}
- vlan {{ vlan }}
-   name {{ name }}
- {% endfor %}
+ #vlan {{ vlan }}
+ #   name {{ name }}
+ #{% endfor %}
 !
 interface vlan2
  ip address {{ip_switch}} 255.255.255.0
