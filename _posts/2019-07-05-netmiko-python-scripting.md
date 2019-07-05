@@ -24,7 +24,7 @@ tags:
 [python examples code](https://github.com/ya-zero/ya-zero.github.io/tree/master/uploads/generate_config_example)
 
 
-имея набор данных в формате yaml
+ Имея набор данных в формате yaml
 ```sh
 zabbix: 192.168.0.20
 radius_server: 172.20.103.206
@@ -37,8 +37,8 @@ vlans:
  2: mgmt
 701: sk_kanal
 ```
-мы подставляем в шаблон jinja2
- - базовый шаблон 
+Мы подставляем в шаблон jinja2
+  Базовый шаблон:
 
 ```
 username admin privilege 15 password 0 rfm
@@ -71,7 +71,7 @@ loopback-detection specified-vlan 1-4094
 loopback-detection control block
 !
 ```
- - создание vlan и description
+ Cоздание vlan и description:
   ```
  1. { % for vlan, name in vlans.items() % }
  2. vlan {{ vlan }}
@@ -83,7 +83,7 @@ loopback-detection control block
  8. !
  9. ip default-gateway 192.168.2.254
 ```
- - radius авторизация (http по local password)
+Radius авторизация (http по local password):
 ```
 !
 authentication line console login local
@@ -95,7 +95,7 @@ radius-server authentication host {{radius_server}} key 0 {{radius_key}}
 aaa enable
 !
 ```
-на выходе получаем конфиг
+3. на выходе получаем конфиг
 ```
 username admin privilege 15 password 0 rfm
 !
