@@ -1,0 +1,3 @@
+{% include 'snr_base.txt' %}
+{% include 'snr_vlan_mgmt_ip.txt' %}
+{% include 'snr_authen_radius.txt' %}
