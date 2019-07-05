@@ -1,0 +1,17 @@
+zabbix: 192.168.0.20
+
+radius_server: 172.20.103.206
+
+radius_key: radius
+
+ntp_server: 192.168.0.1
+
+ip_switch: 192.168.2.227
+
+intf_trunk: 9-10
+
+vlan_trunk: 2;701
+
+vlans:
+ 2: mgmt
+ 701: sk_kanal
