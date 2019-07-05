@@ -41,7 +41,7 @@ vlans:
 Мы подставляем в шаблон jinja2
   Базовый шаблон:
 
-```
+```python
 username admin privilege 15 password 0 rfm
 !
 clock timezone MSK add 3 0
@@ -86,7 +86,7 @@ ip default-gateway 192.168.2.254
 ```
 
 Radius авторизация (http по local password):
-```
+```python
 !
 authentication line console login local
 authentication line vty login radius local
@@ -99,7 +99,7 @@ aaa enable
 ```
 На выходе получаем конфиг:
 
-```
+```python
 username admin privilege 15 password 0 rfm
 !
 clock timezone MSK add 3 0
