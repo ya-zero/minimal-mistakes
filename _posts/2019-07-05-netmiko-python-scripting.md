@@ -96,6 +96,6 @@ aaa enable
 !
 ```
 
-
+на выходе получаем файл https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config_example/192.168.2.227.cfg
  
 
