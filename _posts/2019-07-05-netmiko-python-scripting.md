@@ -38,10 +38,11 @@ vlans:
 ```
 мы подставляем в шаблон jinja2
  - базовый шаблон 
-
+https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config_example/snr/snr_base.txt
  - создание vlan и description
+ https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config_example/snr/snr_vlan_mgmt_ip.txt
  - radius авторизация (http по local password)
-
+https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config_example/snr/snr_authen_radius.txt
 
 на выходе получаем файл https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config_example/192.168.2.227.cfg
  
