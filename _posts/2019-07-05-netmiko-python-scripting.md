@@ -74,10 +74,10 @@ loopback-detection control block
 ```
  Cоздание vlan и description:
  
-   &#123;% for vlan, name in vlans.items() %}
-   vlan &#123;{ vlan }}
-    name &#123;{ name }}
-  &#123;% endfor %}
+  {% for vlan, name in vlans.items() %}
+   vlan {{ vlan }}
+    name {{ name }}
+   {% endfor %}
   !
   interface vlan2
    ip address &#123;{ip_switch}} 255.255.255.0
