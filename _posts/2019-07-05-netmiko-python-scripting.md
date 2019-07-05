@@ -48,10 +48,10 @@ https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config
  
  
  
- - { % for vlan, name in vlans.items() % }
+ - {% for vlan, name in vlans.items() %}
  - vlan {{ vlan }}
  -    name {{ name }}
- - { % endfor %  }
+ - {% endfor %}
  - !
  - interface vlan2
  - ip address {{ip_switch}} 255.255.255.0
