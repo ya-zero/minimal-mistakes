@@ -73,11 +73,11 @@ loopback-detection control block
 !
 ```
  Cоздание vlan и description:
-```javascript
-{% for vlan, name in vlans.items() %}
+```python
+`{%` for vlan, name in vlans.items() `%}`
 vlan <span>{</span>{ vlan }}
     name {{ name }}
-{% endfor %}
+`{%` endfor `%}`
 !
 interface vlan2
  ip address {{ip_switch}} 255.255.255.0
