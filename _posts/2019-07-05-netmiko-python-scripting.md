@@ -47,14 +47,14 @@ https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config
 на выходе получаем файл https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config_example/192.168.2.227.cfg
  
  
- 
- - {% for vlan, name in vlans.items() %}
- - vlan {{ vlan }}
- -    name {{ name }}
- - {% endfor %}
- - !
- - interface vlan2
- - ip address {{ip_switch}} 255.255.255.0
- - !
- - ip default-gateway 192.168.2.254
-
+ ```
+ 1. {% for vlan, name in vlans.items() %}
+ 2. vlan {{ vlan }}
+ 3.    name {{ name }}
+ 4. {% endfor %}
+ 5. !
+ 6. interface vlan2
+ 7. ip address {{ip_switch}} 255.255.255.0
+ 8. !
+ 9. ip default-gateway 192.168.2.254
+```
