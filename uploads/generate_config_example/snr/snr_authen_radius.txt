@@ -1,0 +1,9 @@
+!
+authentication line console login local
+authentication line vty login radius local
+authentication enable radius local
+authorization line vty exec radius local
+!
+radius-server authentication host {{radius_server}} key 0 {{radius_key}}
+aaa enable
+!
