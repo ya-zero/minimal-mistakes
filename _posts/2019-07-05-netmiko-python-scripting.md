@@ -77,7 +77,7 @@ loopback-detection control block
   {% for vlan, name in vlans.items() %}
    vlan {{ vlan }}
     name {{ name }}
-   {% endfor %}
+  {% endfor %}
   !
   interface vlan2
    ip address &#123;{ip_switch}} 255.255.255.0
