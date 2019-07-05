@@ -74,15 +74,15 @@ loopback-detection control block
 ```
  Cоздание vlan и description:
   ```
- 1. { % for vlan, name in vlans.items() % }
- 2. vlan {{ vlan }}
- 3.    name {{ name }}
- 4. { % endfor % }
- 5. !
- 6. interface vlan2
- 7. ip address {{ip_switch}} 255.255.255.0
- 8. !
- 9. ip default-gateway 192.168.2.254
+ { % for vlan, name in vlans.items() % }
+ vlan {{ vlan }}
+  name {{ name }}
+ { % endfor % }
+ !
+ interface vlan2
+  ip address {{ip_switch}} 255.255.255.0
+ !
+ ip default-gateway 192.168.2.254
 ```
 Radius авторизация (http по local password):
 ```
