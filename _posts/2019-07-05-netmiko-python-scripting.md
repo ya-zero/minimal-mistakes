@@ -21,6 +21,7 @@ tags:
 
 Пример   генерации  конфига , который в дальнейшем можно отправить на обордование как комманды , 
 может быть использован при подготовки оборудования перед установкой на сети.
+
 [python examples code](https://github.com/ya-zero/ya-zero.github.io/tree/master/uploads/generate_config_example)
 
 
@@ -95,7 +96,8 @@ radius-server authentication host {{radius_server}} key 0 {{radius_key}}
 aaa enable
 !
 ```
-3. на выходе получаем конфиг
+На выходе получаем конфиг:
+
 ```
 username admin privilege 15 password 0 rfm
 !
