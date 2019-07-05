@@ -39,6 +39,7 @@ vlans:
 ```
 мы подставляем в шаблон jinja2
  - базовый шаблон 
+
 ```
 username admin privilege 15 password 0 rfm
 !
