@@ -72,7 +72,7 @@ loopback-detection control block
 
  - создание vlan и description
 ```sh
- {% for vlan, name in vlans.items() %}
+ #{% for vlan, name in vlans.items() %}
  vlan {{ vlan }}
    name {{ name }}
  {% endfor %}
