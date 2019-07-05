@@ -21,7 +21,8 @@ tags:
 
 Пример   генерации  конфига , который в дальнейшем можно отправить на обордование как комманды , 
 может быть использован при подготовки оборудования перед установкой на сети.
-https://github.com/ya-zero/ya-zero.github.io/tree/master/uploads/generate_config_example
+[python examples code](https://github.com/ya-zero/ya-zero.github.io/tree/master/uploads/generate_config_example)
+
 
 имея набор данных в формате yaml
 ```sh
@@ -93,8 +94,54 @@ radius-server authentication host {{radius_server}} key 0 {{radius_key}}
 aaa enable
 !
 ```
-
-на выходе получаем файл https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config_example/192.168.2.227.cfg
- 
- 
+на выходе получаем конфиг
+```
+username admin privilege 15 password 0 rfm
+!
+clock timezone MSK add 3 0
+!
+logging 192.168.0.20
+logging executed-commands enable
+!
+snmp-server enable
+snmp-server security disable
+snmp-server host 192.168.0.20 v2c  public
+snmp-server community ro 0 public
+!
+lldp enable
+!
+mtu 9000
+!
+loopback-detection interval-time 10 3
+loopback-detection control-recovery timeout 600
+loopback-detection trap enable
+!
+ntp enable
+ntp server
+!
+interface ethernet1/0/9-10
+switchport mode trunk
+switchport trunk allowed vlan 2;701
+loopback-detection specified-vlan 1-4094
+loopback-detection control block
+!
+vlan 2
+   name mgmt
+vlan 701
+   name sgok_kanal
+!
+interface vlan2
+ ip address 192.168.2.227 255.255.255.0
+!
+ip default-gateway  192.168.2.254
+!
+authentication line console login local
+authentication line vty login radius local
+authentication enable radius local
+authorization line vty exec radius local
+!
+radius-server authentication host 172.20.103.206 key 0 radius
+aaa enable
+!
+```
  
