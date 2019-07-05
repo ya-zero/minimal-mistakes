@@ -38,7 +38,7 @@ vlans:
 ```
 мы подставляем в шаблон jinja2
  - базовый шаблон 
-```python
+```sh
 username admin privilege 15 password 0 rfkm
 !
 clock timezone MSK add 3 0
@@ -71,7 +71,7 @@ loopback-detection control block
 ```
 
  - создание vlan и description
-```python
+```sh
  {% for vlan, name in vlans.items() %}
  vlan {{ vlan }}
    name {{ name }}
@@ -84,7 +84,7 @@ ip default-gateway 192.168.2.254
 ```
 
  - radius авторизация (http по local password)
-```python
+```sh
 !
 authentication line console login local
 authentication line vty login radius local
