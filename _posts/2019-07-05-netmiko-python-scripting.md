@@ -37,7 +37,7 @@ vlans:
 701: sk_kanal
 ```
 мы подставляем в шаблон jinja2
-базовый шаблон 
+ - базовый шаблон 
 ```sh
 username admin privilege 15 password 0 rfkm
 !
@@ -68,8 +68,10 @@ switchport trunk allowed vlan {{ vlan_trunk }}
 loopback-detection specified-vlan 1-4094
 loopback-detection control block
 !
+```
 
-#создание vlan и description
+ - создание vlan и description
+```sh
 {% for vlan, name in vlans.items() %}
 vlan {{ vlan }}
    name {{ name }}
@@ -79,7 +81,10 @@ interface vlan2
  ip address {{ip_switch}} 255.255.255.0
 !
 ip default-gateway 192.168.2.254
-# radius авторизация (http по local password)
+```
+
+ - radius авторизация (http по local password)
+```sh
 !
 authentication line console login local
 authentication line vty login radius local
@@ -89,7 +94,7 @@ authorization line vty exec radius local
 radius-server authentication host {{radius_server}} key 0 {{radius_key}}
 aaa enable
 !
-
+```
 
 
  
