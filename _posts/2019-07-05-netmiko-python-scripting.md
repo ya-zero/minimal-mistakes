@@ -38,16 +38,39 @@ vlans:
 ```
 мы подставляем в шаблон jinja2
  - базовый шаблон 
-https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config_example/snr/snr_base.txt
+```
+username admin privilege 15 password 0 rfm
+!
+clock timezone MSK add 3 0
+!
+logging {{zabbix}}
+logging executed-commands enable
+!
+snmp-server enable
+snmp-server security disable
+snmp-server host {{zabbix}} v2c  public
+snmp-server community ro 0 public
+!
+lldp enable
+!
+mtu 9000
+!
+loopback-detection interval-time 10 3
+loopback-detection control-recovery timeout 600
+loopback-detection trap enable
+!
+ntp enable
+ntp server {{ntp_server}}
+!
+interface ethernet1/0/{{intf_trunk}}
+switchport mode trunk
+switchport trunk allowed vlan {{ vlan_trunk }}
+loopback-detection specified-vlan 1-4094
+loopback-detection control block
+!
+```
  - создание vlan и description
- https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config_example/snr/snr_vlan_mgmt_ip.txt
- - radius авторизация (http по local password)
-https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config_example/snr/snr_authen_radius.txt
-
-на выходе получаем файл https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config_example/192.168.2.227.cfg
- 
- 
- ```
+  ```
  1. { % for vlan, name in vlans.items() % }
  2. vlan {{ vlan }}
  3.    name {{ name }}
@@ -58,3 +81,20 @@ https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config
  8. !
  9. ip default-gateway 192.168.2.254
 ```
+ - radius авторизация (http по local password)
+```
+!
+authentication line console login local
+authentication line vty login radius local
+authentication enable radius local
+authorization line vty exec radius local
+!
+radius-server authentication host {{radius_server}} key 0 {{radius_key}}
+aaa enable
+!
+```
+
+на выходе получаем файл https://github.com/ya-zero/ya-zero.github.io/blob/master/uploads/generate_config_example/192.168.2.227.cfg
+ 
+ 
+ 
