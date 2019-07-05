@@ -58,10 +58,10 @@ mtu 9000
 loopback-detection interval-time 10 3
 loopback-detection control-recovery timeout 600
 loopback-detection trap enable
-!
-ntp enable
-ntp server {{ntp_server}}
-!
+ !
+ ntp enable
+ ntp server {{ntp_server}}
+ !
 interface ethernet1/0/{{intf_trunk}}
 switchport mode trunk
 switchport trunk allowed vlan {{ vlan_trunk }}
