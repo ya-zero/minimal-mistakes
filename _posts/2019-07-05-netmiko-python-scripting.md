@@ -75,7 +75,7 @@ loopback-detection control block
  Cоздание vlan и description:
  ```
   { % for vlan, name in vlans.items() % }
-  vlan {{ vlan }}
+ 1. vlan {{ vlan }}
    name {{ name }}
   { % endfor % }
   !
