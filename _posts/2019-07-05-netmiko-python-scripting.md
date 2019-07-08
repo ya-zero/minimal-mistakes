@@ -26,7 +26,7 @@ tags:
 
 
  Имея набор данных в формате yaml
-```sh
+ ```sh
 zabbix: 192.168.0.20
 radius_server: 172.20.103.206
 radius_key: radius
@@ -41,18 +41,18 @@ vlans:
 
 Мы подставляем в шаблон jinja2
   Базовый шаблон (snr_base.txt):
-
+{% raw %}
 ```python
 username admin privilege 15 password 0 rfm
 !
 clock timezone MSK add 3 0
 !
-logging {% raw %}{{zabbix}}{% endraw %}
+logging {{zabbix}}
 logging executed-commands enable
 !
 snmp-server enable
 snmp-server security disable
-snmp-server host {% raw %}{{zabbix}}{% endraw %} v2c  public
+snmp-server host {{zabbix}} v2c  public
 snmp-server community ro 0 public
 !
 lldp enable
@@ -64,15 +64,17 @@ loopback-detection control-recovery timeout 600
 loopback-detection trap enable
 !
 ntp enable
-ntp server {% raw %}{{ntp_server}}{% endraw %}
+ntp server {{ntp_server}}
 !
-interface ethernet1/0/{% raw %}{{intf_trunk}}{% endraw %}
+interface ethernet1/0/{{intf_trunk}}
 switchport mode trunk
-switchport trunk allowed vlan {% raw %}{{vlan_trunk}}{% endraw %}
+switchport trunk allowed vlan {{vlan_trunk}}
 loopback-detection specified-vlan 1-4094
 loopback-detection control block
 !
 ```
+{% endraw %}
+
  Cоздание vlan и description(snr_switch_template.txt):
 {% raw %}
 ```
@@ -90,6 +92,7 @@ ip default-gateway 192.168.2.254
 
 
 Radius авторизация (snr_authen_radius.txt):
+{% raw %}
 ```python
 !
 authentication line console login local
@@ -97,10 +100,12 @@ authentication line vty login radius local
 authentication enable radius local
 authorization line vty exec radius local
 !
-radius-server authentication host {% raw %}{{radius_server}}{% endraw %} key 0 {% raw %}{{radius_key}}{% endraw %}
+radius-server authentication host {{radius_server}} key 0 {{radius_key}}
 aaa enable
 !
 ```
+{% endraw %}
+
 На выходе получаем конфиг:
 
 ```python
