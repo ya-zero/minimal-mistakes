@@ -162,6 +162,7 @@ Start
 
 Результат выполнения
 Dlink :
+```console
 - Boot: 1.00.B01
   Hardware: A1
   Ip: 192.168.0.62
@@ -189,3 +190,4 @@ SNR :
   Model: SNR-S2985G-8T
   Serial: SW070911H528001886
   Software: 7.0.3.5(R0241.0215)
+```
