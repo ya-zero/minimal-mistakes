@@ -22,7 +22,7 @@ tags:
 Пример   генерации  конфига , который в дальнейшем можно отправить на обордование как комманды , 
 может быть использован при подготовки оборудования перед установкой на сети.
 
-[python examples code](https://github.com/ya-zero/ya-zero.github.io/tree/master/uploads/generate_config_example)
+[github python examples code](https://github.com/ya-zero/ya-zero.github.io/tree/master/uploads/generate_config_example)
 
 
  Имея набор данных в формате yaml
