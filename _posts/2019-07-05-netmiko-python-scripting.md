@@ -46,12 +46,12 @@ username admin privilege 15 password 0 rfm
 !
 clock timezone MSK add 3 0
 !
-logging {{zabbix}}
+logging {% raw %}{{zabbix}}{% endraw %}
 logging executed-commands enable
 !
 snmp-server enable
 snmp-server security disable
-snmp-server host {{zabbix}} v2c  public
+snmp-server host {% raw %}{{zabbix}}{% endraw %} v2c  public
 snmp-server community ro 0 public
 !
 lldp enable
@@ -63,11 +63,11 @@ loopback-detection control-recovery timeout 600
 loopback-detection trap enable
 !
 ntp enable
-ntp server {{ntp_server}}
+ntp server {% raw %}{{ntp_server}}{% endraw %}
 !
-interface ethernet1/0/{{intf_trunk}}
+interface ethernet1/0/{% raw %}{{intf_trunk}}{% endraw %}
 switchport mode trunk
-switchport trunk allowed vlan {{ vlan_trunk }}
+switchport trunk allowed vlan {% raw %}{{ vlan_trunk }}{% endraw %}
 loopback-detection specified-vlan 1-4094
 loopback-detection control block
 !
@@ -76,7 +76,7 @@ loopback-detection control block
 {% raw %}
 ```
 {% for vlan, name in vlans.items() %}
-vlan { { vlan }}
+vlan {{ vlan }}
     name {{ name }}
 {% endfor %}
 !
@@ -96,7 +96,7 @@ authentication line vty login radius local
 authentication enable radius local
 authorization line vty exec radius local
 !
-radius-server authentication host {{radius_server}} key 0 {{radius_key}}
+radius-server authentication host {% raw %}{{radius_server}}{% endraw %} key 0 {% raw %}{{radius_key}}{% endraw %}
 aaa enable
 !
 ```
