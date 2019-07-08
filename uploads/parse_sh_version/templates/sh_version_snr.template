@@ -1,0 +1,33 @@
+#SNR-S2965-24T
+Value Model (\S+)
+Value Mac (\S+)
+Value Software (\S+)
+Value Boot (\S+)
+Value Hardware (\S+)
+Value Serial (\S+)
+
+Start
+  ^.{2}${Model} Device.*
+  ^.*Vlan \S+ ${Mac}
+  ^.*SoftWare \S+ ${Software}
+  ^.*BootRom \S+ ${Boot}
+  ^.*HardWare \S+ ${Hardware}
+  ^.*Serial.*:${Serial} -> Record
+
+
+# SNR-S2965-24T Device, Compiled on Sep 30 09:40:44 2016
+#  sysLocation Building 57/2,Predelnaya st, Ekaterinburg, Russia
+#  CPU Mac f8:f0:82:75:07:7d
+#  Vlan MAC f8:f0:82:75:07:7c
+#  SoftWare Version 7.0.3.5(R0241.0124)
+#  BootRom Version 7.2.25
+#  HardWare Version 1.0.2
+#  CPLD Version N/A
+#  Serial No.:SW052910FA15000909
+#  Copyright (C) 2016 NAG LLC
+#  All rights reserved
+#  Last reboot is cold reset.
+#  Uptime is 26 weeks, 6 days, 1 hours, 30 minutes
+
+
+
