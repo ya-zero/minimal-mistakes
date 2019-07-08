@@ -89,7 +89,9 @@ route-map map-AS12389_out permit 100
  set community 12389:6991 additive
 ```
 
-проверям.
+проверям.  дописав route-map мы свормировали новое update сообщение помимо /24 сетей, c другими path attributes для адрсеа 195.178.23.1/24  
+что видно в wireshark
+
 
 ```bash
 sh ip bgp route-map map-AS12389_out
