@@ -11,7 +11,7 @@ tags:
 ---
 
 Пример кода который позволяет распарсить cli вывод   с коммутора комманды sh version/sh switch.
-[source](https://github.com/ya-zero/)
+[source](https://github.com/ya-zero/ya-zero.github.io/tree/master/uploads/parse_sh_version)
 
 
 ```console
