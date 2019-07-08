@@ -15,12 +15,12 @@ tags:
 
 - очень понравилась система eNMS (https://github.com/afourmy/eNMS) основанный на pyNMS 
  - workflow - можно указать последовательсть выполнения задач
- - task - задачи котрые нужно выпонить на соборудовании
- - maps - карта сети. вообще бесплатных аналогов не встречал. 
+ - task - задачи котрые нужно выполнить на оборудовании
+ - maps - карта сети. 
 
 
 Пример   генерации  конфига , который в дальнейшем можно отправить на обордование как комманды , 
-может быть использован при подготовки оборудования перед установкой на сети.
+такде может быть использован при подготовки оборудования перед установкой на сети.
 
 [github python examples code](https://github.com/ya-zero/ya-zero.github.io/tree/master/uploads/generate_config_example)
 
@@ -38,8 +38,9 @@ vlans:
  2: mgmt
 701: sk_kanal
 ```
+
 Мы подставляем в шаблон jinja2
-  Базовый шаблон:
+  Базовый шаблон (snr_base.txt):
 
 ```python
 username admin privilege 15 password 0 rfm
@@ -72,7 +73,7 @@ loopback-detection specified-vlan 1-4094
 loopback-detection control block
 !
 ```
- Cоздание vlan и description:
+ Cоздание vlan и description(snr_switch_template.txt):
 {% raw %}
 ```
 {% for vlan, name in vlans.items() %}
@@ -88,7 +89,7 @@ ip default-gateway 192.168.2.254
 {% endraw %}
 
 
-Radius авторизация (http по local password):
+Radius авторизация (snr_authen_radius.txt):
 ```python
 !
 authentication line console login local
