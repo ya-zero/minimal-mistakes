@@ -1,0 +1,47 @@
+#DES-3010G
+#DES-1210
+Value Model (\S+)
+Value Mac (\S+)
+Value Boot (\S+)
+Value Software (\S+)
+Value Serial (\S+)
+Value Hardware (\S+)
+
+Start
+  ^.*Device.*: ${Model}
+  ^.*MAC.*: ${Mac}
+  ^.*Boot.*:( \S+ | )${Boot}
+  ^.*Firmware.*:( \S+ | )${Software}
+  ^.*Hardware.*: ${Hardware}
+  ^.*Serial.*: ${Serial} -> Record
+#
+#Device Type        : DES-3010G Fast Ethernet Switch
+#MAC Address        : 00-22-B0-63-43-30
+#IP Address         : 192.168.0.10 (Manual)
+#Boot PROM Version  : Build 1.01.009
+#Firmware Version   : Build 4.20.B27
+#Hardware Version   : A3
+#
+#DES-1210
+#Value Model (\S+)
+#Value Mac (\S+)
+#Value Required Boot (\S+)
+#Value Software (\S+)
+#Value Serial (\S+)
+#Value Hardware (\S+)
+#
+#Start
+#  ^.*Device.*: ${Model}
+#  ^.*MAC.*: ${Mac}
+#  ^.*Boot.*: ${Boot}
+#  ^.*Firmware.*: ${Software}
+#  ^.*Hardware.*: ${Hardware}
+#  ^.*Serial.*: ${Serial} -> Record
+#
+#System Hardware Version           : B2
+#System Serial Number              : QBM51DA004240
+#важна очередность Start 1 2 3 5 4 -Resocrd !!!!!!!!!!!!!!!
+
+
+
+
