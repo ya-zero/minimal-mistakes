@@ -158,3 +158,34 @@ Start
 #System Serial Number              : QBM51DA004240
 #важна очередность Start 1 2 3 5 4 -Resocrd !!!!!!!!!!!!!!!
 ```
+
+
+Результат выполнения
+Dlink :
+- Boot: 1.00.B01
+  Hardware: A1
+  Ip: 192.168.0.62
+  Mac: 1C-AF-F7-6F-4A-BB
+  Model: DES-1228/ME
+  Software: 1.60.B02
+- Boot: 4.00.002
+  Hardware: C1
+  Ip: 192.168.0.64
+  Mac: E8-CC-18-D4-8E-40
+  Model: DES-3200-28
+  Software: 4.42.B010
+SNR :
+- Boot: 7.1.24
+  Hardware: 1.0.3
+  Ip: 192.168.0.141
+  Mac: f8:f0:82:75:8f:67
+  Model: SNR-S2990G-24TX
+  Serial: SW041310G402000044
+  Software: 7.0.3.5(R0102.0185)
+- Boot: 7.2.33
+  Hardware: 1.1.2
+  Ip: 192.168.0.157
+  Mac: f8:f0:82:77:a2:26
+  Model: SNR-S2985G-8T
+  Serial: SW070911H528001886
+  Software: 7.0.3.5(R0241.0215)
