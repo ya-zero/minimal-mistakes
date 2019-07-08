@@ -10,7 +10,7 @@ tags:
   - cisco,netmiko,python,snr,d-link,mikrotik,telnet,ssh,cli
 ---
 
-При кода который позволяет распарсить cli вывод   с коммутора комманды sh version/sh switch.
+Пример кода который позволяет распарсить cli вывод   с коммутора комманды sh version/sh switch.
 [source](https://github.com/ya-zero/)
 ```python
 # -*- coding: utf-8 -*-
