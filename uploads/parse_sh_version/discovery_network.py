@@ -3,11 +3,6 @@
 # опросить устройство и сохранить информацию о оборудовании
 #"Device Type","Mac","IP Address","Vlan","Boot ver","firmware ver"
 #"SNR-S2965-24T","f8:f0:82:75:07:7c","7.0.3.5(R0241.0124)","7.2.25","192.168.0.195"
-# заполнить таблицу device.db  sqlite  --> mysql
-# аля многозадачность
-# готовим  два файла для template
-#  template -- snr
-#  template -- dlink
 import ipaddress
 import subprocess
 import netmiko
