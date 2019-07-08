@@ -67,7 +67,7 @@ ntp server {% raw %}{{ntp_server}}{% endraw %}
 !
 interface ethernet1/0/{% raw %}{{intf_trunk}}{% endraw %}
 switchport mode trunk
-switchport trunk allowed vlan {% raw %}{{ vlan_trunk }}{% endraw %}
+switchport trunk allowed vlan {% raw %}{{vlan_trunk}}{% endraw %}
 loopback-detection specified-vlan 1-4094
 loopback-detection control block
 !
@@ -76,8 +76,8 @@ loopback-detection control block
 {% raw %}
 ```
 {% for vlan, name in vlans.items() %}
-vlan {{ vlan }}
-    name {{ name }}
+vlan {{vlan}}
+    name {{name}}
 {% endfor %}
 !
 interface vlan2
