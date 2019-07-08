@@ -12,6 +12,17 @@ tags:
 
 Пример кода который позволяет распарсить cli вывод   с коммутора комманды sh version/sh switch.
 [source](https://github.com/ya-zero/)
+
+
+```console
+$ python ./discovery_network.py ./templates/sh_version_snr.template  sh version
+template: ./templates/sh_version_snr.template 
+command: sh version
+>>>connect to host 192.168.0.10
+192.168.0.10 [['SNR-S2985G-8T', 'f8:f0:82:77:d5:e2', '7.0.3.5(R0241.0279)', '7.2.33', '1.1.2', 'SW070911I105000560']]
+```
+
+
 ```python
 # -*- coding: utf-8 -*-
 # готовим  два файла для template
