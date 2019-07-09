@@ -1,5 +1,5 @@
 ---
-title: "Автоматизация выполнения задач на сетевом оборудовании CLI .Генерация конфига."
+title: "Автоматизация выполнения задач на сетевом оборудовании CLI. Генерация конфига. Ч.2"
 date: 2019-07-04 00:52:51 +0000
 categories:
   - python
@@ -12,12 +12,6 @@ tags:
 
 
 Подборка скриптов для выполения автоматического конфигурирования оборудовнаия.
-
-- очень понравилась система eNMS (https://github.com/afourmy/eNMS) основанный на pyNMS 
- - workflow - можно указать последовательсть выполнения задач
- - task - задачи котрые нужно выполнить на оборудовании
- - maps - карта сети. 
-
 
 Пример генерации конфига, который в дальнейшем можно отправить на оборудование как комманды, 
 также может быть использован при подготовки оборудования перед установкой на сеть.
@@ -158,4 +152,12 @@ radius-server authentication host 172.20.103.206 key 0 radius
 aaa enable
 !
 ```
+UPD.
+
+- очень понравилась система eNMS (https://github.com/afourmy/eNMS) основанный на pyNMS 
+- workflow - можно указать последовательсть выполнения задач
+- task - задачи котрые нужно выполнить на оборудовании
+- maps - карта сети. 
+
+
  <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53515717, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53515717" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
