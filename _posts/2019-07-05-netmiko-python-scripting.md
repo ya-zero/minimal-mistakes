@@ -20,14 +20,15 @@ tags:
 
 
 Пример генерации конфига, который в дальнейшем можно отправить на оборудование как комманды, 
-такде может быть использован при подготовки оборудования перед установкой на сети.
+также может быть использован при подготовки оборудования перед установкой на сеть.
 
 [github python examples code](https://github.com/ya-zero/ya-zero.github.io/tree/master/uploads/generate_config_example)
 
 
  Имея набор данных в формате yaml
  ```sh
-zabbix: 192.168.0.20
+syslog: 192.168.0.20
+zabbix: 192.168.0.13
 radius_server: 172.20.103.206
 radius_key: radius
 ntp_server: 192.168.0.1
@@ -47,7 +48,7 @@ username admin privilege 15 password 0 rfm
 !
 clock timezone MSK add 3 0
 !
-logging {{zabbix}}
+logging {{syslog}}
 logging executed-commands enable
 !
 snmp-server enable
