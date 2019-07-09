@@ -10,7 +10,7 @@ tags:
  - https://wiki.mikrotik.com/wiki/Manual:Regular_Expressions
  - http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html
 
-нужно было распарсить порты в бридже и отключить только "ether."  для экранирования применяют ``\`` ,  но тут нужно двойные ``\\``. 
+нужно было распарсить порты в бридже и отключить только "ether."  для экранирования точки применяют ``\`` ,  но тут нужно двойные ``\\``.     (исключить интерфейсы ether1.xxx) 
 
 ```bash 
 root@accel-ppp] > /interface bridge port print                                                                          
