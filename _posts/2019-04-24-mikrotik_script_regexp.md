@@ -1,5 +1,5 @@
 ---
-title: "mikrotik script regexp"
+title: "Mikrotik применение regexp выражений при выполнении комманд (в скриптах)"
 date: 2019-03-22 00:52:51 +0000
 categories:
   - mikrotik
