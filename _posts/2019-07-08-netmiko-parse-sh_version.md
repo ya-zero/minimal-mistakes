@@ -62,19 +62,15 @@ def parse_output(output,template = './templates/sh_version_snr.template'):
     return result
  except:
     print ('>>>no open file:',template)
-# как узнать вендора.
-# сканируем сеть два раза.
-# но в начале должен быть везде ssh.
-# либо запуск по параметрам.
-# если ввели argv не то, но выводим хелп, также хелп доступен.
-# по -h /? --help.
+
+# если ввели argv не то, но выводим хелп
 try:
   template=sys.argv[1]
   command=' '.join(sys.argv[2:])
   print ('template:',template,'\ncommand:',command)
 except:
  print('''неверные аргументы
-- первый аргумент template
+- первый аргумент template пример. ./templates/sh_version_snr.template
 - второй аргумент 'sh version' / 'sh switch'
 ''')
 subnet=ipaddress.ip_network('192.168.0.100/32')
