@@ -136,6 +136,7 @@ UPD.  скрипт для добавления в /system script имя pppoe_an
 #/interface wireless set mode=station numbers=[find name ~"wlan"]
 ```
 откат назад
+
 ```
 :global  dfnether [/interface ethernet get [ find default-name="ether1"] name] ;
 :global dhcppool; 
