@@ -15,7 +15,6 @@ sidebar:
 /interface bridge port
 add bridge=br_vl375 disabled=yes interface=ether1
 ```
-***
 Настройка dhcp на CPE
 
 Вешаем адрес на интерфейс:
