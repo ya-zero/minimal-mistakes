@@ -135,6 +135,55 @@ UPD.  скрипт для добавления в /system script имя pppoe_an
 #change station bridge -> station
 #/interface wireless set mode=station numbers=[find name ~"wlan"]
 ```
+откат назад
+```
+:global  dfnether [/interface ethernet get [ find default-name="ether1"] name] ;
+:global dhcppool; 
+:set dhcppool "dhcp_ipoe";
+
+:global dhcpserver;
+:set dhcpserver "dhcp_ipoe_server";
+
+:global pppoeclient;
+:set pppoeclient "pppoe_client_int";
+
+:global brpppoe;
+:set brpppoe "br_vl375";
+
+:put $dfnether;
+:put $dhcpserver;
+:put $dhcppool;
+:put $pppoeclient;
+:put $brpppoe;
+########################################################################
+#restore old configuration
+
+#DHCP SERVER
+/ip dhcp-server remove numbers=[find name=$dhcpserver]
+
+# POOL
+/ip pool remove numbers=[find name=$dhcppool];
+
+#string 29 delete old PPPoE_Client
+ /interface pppoe-client remove numbers=[find name=$pppoeclient]
+
+#DHCP NETWORK remove
+/ip dhcp-server network remove numbers=[find address="10.100.0.0/24"]
+
+# disable address on ether1
+/ip address set disabled=yes numbers=[find interface ~ $dfnether]
+
+# restore ether1 intreface fron bridge 
+/interface bridge port set disabled=no   numbers=[find interface ~ $dfnether] 
+
+#remove firewall nat rules 
+/ ip firewall nat remove [/ip firewall nat find]
+
+#restore change station bridge -> station
+/interface wireless set mode=station-bridge numbers=[find name ~"wlan"]
+
+```
+
 upd [sample script presentations](https://mum.mikrotik.com//presentations/RU16/presentation_3759_1475646696.pdf)
 
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53515717, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53515717" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
