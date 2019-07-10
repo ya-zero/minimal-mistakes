@@ -178,7 +178,7 @@ UPD.  скрипт для добавления в /system script имя pppoe_an
 /interface bridge port set disabled=no   numbers=[find interface ~ $dfnether] 
 
 #remove firewall nat rules 
-/ ip firewall nat remove [/ip firewall nat find]
+/ip firewall nat remove [find where src-address="10.100.0.0/24"]
 
 #restore change station bridge -> station
 /interface wireless set mode=station-bridge numbers=[find name ~"wlan"]
