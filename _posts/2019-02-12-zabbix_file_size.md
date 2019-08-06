@@ -16,7 +16,7 @@ tags:
 (config-kron-occurrence)#policy-list SaveConfig
 (config)#kron policy-list SaveConfig
 (config-kron-policy)#cli show run | redirect tftp://172.20.103.206/core/cisco.cfg
-(config-kron-policy)#copy cat4000_flash:vlan.dat  tftp://172.20.103.206/core/c4948vlan.dat
+(config-kron-policy)#cli copy cat4000_flash:vlan.dat  tftp://172.20.103.206/core/c4948vlan.dat
 
 ```
 > За историей изменений следит git 
