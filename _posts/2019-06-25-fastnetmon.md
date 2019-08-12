@@ -89,7 +89,11 @@ route-map map-AS12389_out permit 100
  set community 12389:6991 additive
 ```
 
-проверям.  дописав route-map мы свормировали новое update сообщение помимо /24 сетей, c другими path attributes для адрсеа 195.178.23.1/24  ,  что видно в wireshark (косяк с ip адресами, везде разные)
+проверям. 
+```
+echo "announce route 195.178.23.1/32 next-hop 192.168.0.43 community 65002:555" > /var/run/exabgp.cmd
+```
+дописав route-map мы сформировали новое update сообщение помимо анонсируемых /24 сетей, но уже c другими path attributes для адрсеа 195.178.23.1/32  ,  что видно в wireshark (косяк с ip адресами, везде разные)
 ![]({{ site.baseurl }}/uploads/bgp_route-map.png "wireshark")
 
 ```bash
