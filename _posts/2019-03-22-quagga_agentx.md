@@ -1,5 +1,5 @@
 ---
-title: "Мониторинг ospf соседей демона ospfd по snmp "
+title: "Мониторинг ospf соседей демона ospfd по snmp  (frrouting)"
 date: 2019-03-22 00:52:51 +0000
 categories:
   - snmp
@@ -62,4 +62,24 @@ ospfd     14290         frr   19u  IPv4 93693088      0t0  TCP 127.0.0.1:51502->
  https://github.com/FRRouting/frr/blob/master/doc/user/snmp.rst
 
  http://cric.grenoble.cnrs.fr/Administrateurs/Outils/MIBS/?oid=1.3.6.1.2.1.14
+ 
+ UPD.  После обновления до версии 7.X.X . подгружать модули через modprobe не нужно. Также не забыть установить пакет frr-snmp.  
+ Но потребовалось изменить параметры запуска daemon , дополнительно прописать -M snmp .
+ модули доступные из deb пакета
+  /usr/lib/x86_64-linux-gnu/frr/modules
+  > bgpd_snmp.so  
+  > ospf6d_snmp.so  
+  > ospfd_snmp.so  
+  > ripd_snmp.so  
+  > zebra_fpm.so  
+  > zebra_irdp.so	
+  > zebra_snmp.so
+
+ 
+ ```bash
+zebra_options="  -A 127.0.0.1 -M snmp -s 90000000"
+bgpd_options="   -A 127.0.0.1 -M snmp "
+ospfd_options="  -A 127.0.0.1 -M snmp "
+```
+ 
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(53515717, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/53515717" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
