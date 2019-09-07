@@ -105,8 +105,8 @@ analytics:
 author:
   name             : "yazero"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : #"I am an amazing person."
-  location         : "belgorod region, st.oskol"
+  bio              : # "I am an amazing person."
+  location         : # "belgorod region, st.oskol"
   email            :
   links:
     - label: "Email"
