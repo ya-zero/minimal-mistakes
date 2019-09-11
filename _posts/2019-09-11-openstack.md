@@ -6,6 +6,8 @@ categories:
 tags:
   - devops
 ---
- 
+ 1)
  установки на uduntu 16.04  xenial 
  https://ru.bmstu.wiki/OpenStack
+2) необходимые ресурсы
+![]({{ site.baseurl }}/uploads/hwreqs.png "требуемые ресурсы")
