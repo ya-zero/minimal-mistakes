@@ -1,6 +1,6 @@
 ---
 title: "подписание rpm пакетов с помощью rutoken"
-date: 2019-10-01 09:52:51 +0000
+date: 2019-10-01 00:00:51 +0000
 categories:
   - rpm 
   - rutoken
