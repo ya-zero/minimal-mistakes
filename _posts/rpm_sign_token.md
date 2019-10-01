@@ -7,10 +7,12 @@ categories:
 ---
 
 1) config.vm.box = "generic/ubuntu1904"
+
 2) требуемые пакеты.
   2.1 dpkg -i libccid libpcsclite1 pcscd pcsc-tools opensc gnupg-pkcs11-scd  rpm
   2.2 wget https://download.rutoken.ru/Rutoken/PKCS11Lib/1.9.15.0/Linux/x64/librtpkcs11ecp_1.9.15.0-1_amd64.deb
            def install /usr/lib/librtpkcs11ecp.so
+
 3) проверить есть ли пакеты 
   3.1) dpkg -s gnupg gpg-agent / gnupg не ниже 2.1.9
   3.2) dpkg -s gnupg-pkcs11-scd  / не ниже 0.9.2
@@ -18,25 +20,24 @@ categories:
 4) конфигурим
    gnupg-pkcs11-scd
    gpg-agent
-в домашней дериктории пользотвалеся 
+в домашней дериктории пользователя 
 ./gnupg/gnupg-pkcs11-scd.conf
-debug-all
-verbose
-log-file /root/gnupg-pkcs11-scd.log
-providers p1
-provider-p1-library /usr/lib/librtpkcs11ecp.so 
-
+ debug-all
+ verbose
+ log-file /root/gnupg-pkcs11-scd.log
+ providers p1
+ provider-p1-library /usr/lib/librtpkcs11ecp.so 
 
 .gnupg/gpg-agent.conf
-scdaemon-program /usr/bin/gnupg-pkcs11-scd
-pinentry-program /usr/bin/pinentry-tty
+ scdaemon-program /usr/bin/gnupg-pkcs11-scd
+ pinentry-program /usr/bin/pinentry-tty
 
 5)
-gnupg-pkcs11-scd --daemon
-gpg-agent  --daemon (по идее будет запущен)  можно  сделать gpgconf --kill all
-gpg-agent  --server
+ gnupg-pkcs11-scd --daemon
+ gpg-agent  --daemon (по идее будет запущен)  можно  сделать gpgconf --kill all
+ gpg-agent  --server
 
-для генерации opengpg ключа нужен KEY-FRIEDNLY  его можно взять из логов log-file /root/gnupg-pkcs11-scd.log 
+Для генерации opengpg ключа нужен KEY-FRIEDNLY  его можно взять из логов log-file /root/gnupg-pkcs11-scd.log 
 
 gpg-connect-agent  'SCD LEARN' /bye | grep KEY-FRIEDNLY  | awk '{print $3}'
 
