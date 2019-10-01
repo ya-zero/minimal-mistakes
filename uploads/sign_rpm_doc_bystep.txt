@@ -10,7 +10,7 @@
 4) конфигурим
    gnupg-pkcs11-scd
    gpg-agent
-в домашней дериктории пользотвалеся 
+в домашней дериктории пользователя 
 ./gnupg/gnupg-pkcs11-scd.conf
 debug-all
 verbose
