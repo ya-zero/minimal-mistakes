@@ -1,0 +1,41 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.provision :shell , inline: <<-SHELL 
+  sudo apt-get -y install libccid pcscd opensc pcsc-tools  > /dev/null 2>&1
+  wget https://download.rutoken.ru/Rutoken/PAM/1.0.0/x86_64/librtpam.so.1.0.0 -P ~ для 64 разрядной системы 
+  sudo cp ~/librtpam.so.1.0.0   /usr/lib
+  #прямая ссылка
+  wget https://download.rutoken.ru/Rutoken/PKCS11Lib/1.9.15.0/Linux/x64/librtpkcs11ecp_1.9.15.0-1_amd64.deb   -P ~
+  sudo dpkg -i ~/librtpkcs11ecp_1.9.15.0-1_amd64.deb
+  #комманды проверки  
+  pkcs11-tool --module /usr/lib/librtpkcs11ecp.so -O > /home/vagrant/vboxshare/export_id
+  #find  /usr/*(lib|lib64) -name librtpkcs11ecp.so 
+  # из pkcs11-tool --module /usr/lib/librtpkcs11ecp.so -O  
+  # нужно взять id 509 
+  #Certificate Object, type = X.509 cert
+  #label:
+  #ID:         72617a64726f67696e615f3030373732343236313631305f30322e31312e31365f31332e35362e3535
+  # pkcs11-tool --module {A} -r -y cert --id {B}  | openssl x509 -inform der -text  > ./tofile
+  # cert_id = grep -swm 1 ID /home/vagrant/vboxshare/export_id | awk '{print $2}'
+  pkcs11-tool --module /usr/lib/librtpkcs11ecp.so -r -y cert --id 72617a64726f67696e615f3030373732343236313631305f30322e31312e31365f31332e35362e3535 --output-file /home/vagrant/vboxshare/cert.crt
+  openssl x509 -in /home/vagrant/vboxshare/cert.crt -out /home/vagrant/vboxshare/cert.pem -inform DER -outform PEM
+  #find  /usr/*(lib|lib64) -name opensc-pkcs11.so
+  #/usr/lib/x86_64-linux-gnu/opensc-pkcs11.so
+  # PIN 12345678 rutoken
+  #/src/tools/pkcs11-tool -r -p $PIN --id $SIGN_KEY --type pubkey --module ./src/pkcs11/.libs/opensc-pkcs11.so > /home/vagrant/SIGN_KEY.der
+  SHELL
+
+  config.vm.synced_folder "c:/test_folder", "/home/vagrant/vboxshare"
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--usb", "on"]
+    vb.customize ["modifyvm", :id, "--usbehci", "on"]
+    vb.customize ["modifyvm", :id, "--usbxhci", "on"]
+  end
+  # рекомендованно разделить
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ['usbfilter', 'add', '1', '--target', :id, '--name', 'rutoken', '--vendorid', '0x0a89', '--productid', '0x0030']
+    vb.customize ['usbfilter', 'add', '1', '--target', :id, '--name', 'rutoken', '--vendorid', '0x0529', '--productid', '0x0620']
+  end
+
+end
