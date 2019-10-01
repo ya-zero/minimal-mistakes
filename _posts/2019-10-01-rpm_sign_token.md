@@ -44,15 +44,15 @@ gpg-connect-agent  'SCD LEARN' /bye | grep KEY-FRIEDNLY  | awk '{print $3}'
 
 
 %echo Generating a OpenPGP key
-Key-Type: 1
-Key-Grip: 88E23DFBAA20FA2F8D42A2F62C24E409E8417662
-Key-usage: sign,cert
-Name-Real: name real
-Name-Comment: name comment
-Name-Email: test@pochta.ru
-#Passphrase: 12345678
-%commit
-%done
+ Key-Type: 1
+ Key-Grip: 88E23DFBAA20FA2F8D42A2F62C24E409E8417662
+ Key-usage: sign,cert
+ Name-Real: name real
+ Name-Comment: name comment
+ Name-Email: test@pochta.ru
+ #Passphrase: 12345678
+ %commit
+ %done
 
 что бы подписать нужен файл экпорт производиться по части описания Joe Tester (with stupid passphrase) <test@pochta.ru>
 gpg --export -a 'test@pochta.ru' > RPM-GPG-KEY-faleman
@@ -65,7 +65,7 @@ rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
 
 
 /root/.rpmmacros
-%_gpg_name Joe Tester (with stupid passphrase) <sept_29@pochta.ru>
+ %_gpg_name Joe Tester (with stupid passphrase) <sept_29@pochta.ru>
 
 rpmsign -addsign ./*rpm
 
