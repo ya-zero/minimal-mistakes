@@ -78,9 +78,9 @@ https://github.com/alonbl/gnupg-pkcs11-scd/issues/21
 https://craftware.xyz/securitybricks/2017/07/17/using-tokens-in-Ubuntu-with-pgp.html
 
 P.S.  если вы сами генериурете ключи то нужно сделать 
+нужен пакет dpkg -i  libengine-pkcs11-openssl
 
 новая инициализаиця   
-
 SO-PIN
 pkcs11-tool --module /usr/lib/librtpkcs11ecp.so --init-token --label rutoken_blue --so-pin 87654321
 
