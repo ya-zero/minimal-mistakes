@@ -14,14 +14,19 @@ categories:
            def install /usr/lib/librtpkcs11ecp.so
 
 3) проверить есть ли пакеты 
-   3.1) dpkg -s gnupg gpg-agent / gnupg не ниже 2.1.9
-   3.2) dpkg -s gnupg-pkcs11-scd  / не ниже 0.9.2
+
+3.1) dpkg -s gnupg gpg-agent / gnupg не ниже 2.1.9
+
+3.2) dpkg -s gnupg-pkcs11-scd  / не ниже 0.9.2
   
-4) конфигурим
+4) конфигурим демоны
+
    gnupg-pkcs11-scd
+   
    gpg-agent
 
 в домашней дериктории пользователя 
+
 ./gnupg/gnupg-pkcs11-scd.conf
  debug-all
  verbose
