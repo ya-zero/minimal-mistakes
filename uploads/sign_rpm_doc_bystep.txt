@@ -45,7 +45,19 @@ Name-Email: test@pochta.ru
 %done
 
 что бы подписать нужен файл экпорт производиться по части описания Joe Tester (with stupid passphrase) <test@pochta.ru>
+или по id ключа.
+root@ubuntu1904:~/.gnupg# gpg --list-keys
+/root/.gnupg/pubring.kbx
+------------------------
+pub   rsa2048 2019-09-30 [SC]
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>      E15216754A57D7448C83DD4B257BB235AD7BAFF3       
+uid           [ultimate] sept_29@pochta.ru (0) <sept_29@pochta.ru>
+
+
+gpg --export -a E15216754A57D7448C83DD4B257BB235AD7BAFF3 > RPM-GPG-KEY-faleman 
+or
 gpg --export -a 'test@pochta.ru' > RPM-GPG-KEY-faleman
+
 
 rpm --import RPM-GPG-KEY-faleman
 
@@ -59,3 +71,8 @@ rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
 
 rpmsign -addsign ./*rpm
 
+
+
+https://gist.github.com/fernandoaleman/1376720
+https://github.com/alonbl/gnupg-pkcs11-scd/issues/21
+https://craftware.xyz/securitybricks/2017/07/17/using-tokens-in-Ubuntu-with-pgp.html
