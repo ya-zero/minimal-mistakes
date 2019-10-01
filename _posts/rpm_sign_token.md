@@ -6,7 +6,7 @@ categories:
   - rutoken
 ---
 
-1)  config.vm.box = "generic/ubuntu1904"
+1) config.vm.box = "generic/ubuntu1904"
 
 2) требуемые пакеты.
    2.1 dpkg -i libccid libpcsclite1 pcscd pcsc-tools opensc gnupg-pkcs11-scd  rpm
