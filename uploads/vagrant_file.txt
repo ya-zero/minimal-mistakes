@@ -57,8 +57,10 @@ Vagrant.configure("2") do |config|
   rpm --import ~/RPM-GPG-KEY-faleman
   touch /root/.rpmmacros
   echo "%_gpg_name test@pochta.ru" > /root/.rpmmacros
-  rpmsign -addsign /home/vagrant/vboxshare/*.rpm
-  rpm --checksig /home/vagrant/vboxshare/*.rpm
+  mv /home/vagrant/vboxshare/*.rpm /mnt
+  rpmsign --addsign /mnt/*.rpm
+  rpm --checksig /mnt/*.rpm
+  mv /mnt/*.rpm  /home/vagrant/vboxshare
   SHELL
 
   config.vm.synced_folder "c:/rpm", "/home/vagrant/vboxshare"
