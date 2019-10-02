@@ -55,8 +55,6 @@ Vagrant.configure("2") do |config|
   #Name-Email or ID KEY from gpg --list-keys 
   gpg --export -a 'test@pochta.ru' > ~/RPM-GPG-KEY-faleman
   rpm --import ~/RPM-GPG-KEY-faleman
-  # rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
-  # %_gpg_name  '%{name}-%{version}-%{release} --> %{summary}\n'
   touch /root/.rpmmacros
   echo "%_gpg_name test@pochta.ru" > /root/.rpmmacros
   rpmsign -addsign /home/vagrant/vboxshare/*.rpm
