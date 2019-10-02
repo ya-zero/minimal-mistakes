@@ -1,0 +1,81 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "generic/ubuntu1904"
+  config.vm.provision :shell , inline: <<-SHELL 
+  sudo su
+  echo "nameserver 1.1.1.1" > /etc/resolv.conf
+  apt-get update 
+  apt-get -y install libpcsclite1 libccid pcscd opensc pcsc-tools 
+  apt-get -y install gnupg-pkcs11-scd rpm gnupg gpg-agent pinentry-tty mc
+  apt --fix-broken install -y
+  #прямая ссылка
+  wget https://download.rutoken.ru/Rutoken/PKCS11Lib/1.9.15.0/Linux/x64/librtpkcs11ecp_1.9.15.0-1_amd64.deb   -P ~
+  #установит в  /usr/lib/
+  dpkg -i ~/librtpkcs11ecp_1.9.15.0-1_amd64.deb
+  rm  ~/.gnupg/gnupg-pkcs11-scd.conf > /dev/null 2>&1
+  touch ~/.gnupg/gnupg-pkcs11-scd.conf
+  echo "providers p1" >> ~/.gnupg/gnupg-pkcs11-scd.conf
+  echo "provider-p1-library /usr/lib/librtpkcs11ecp.so" >> ~/.gnupg/gnupg-pkcs11-scd.conf
+  rm  ~/.gnupg/gpg-agent.conf > /dev/null 2>&1
+  touch ~/.gnupg/gpg-agent.conf
+  echo "scdaemon-program /usr/bin/gnupg-pkcs11-scd" >> ~/.gnupg/gpg-agent.conf
+  echo "pinentry-program /usr/bin/pinentry-tty" >> ~/.gnupg/gpg-agent.conf
+  gnupg-pkcs11-scd --daemon
+  gpg-agent  --daemon
+  gpg-agent  --server &
+  keyid=$(gpg-connect-agent  'SCD LEARN' /bye | grep KEY-FRIEDNLY  | awk '{print $3}')
+  echo   $keyid
+  #комманды проверки   подключения ключа  и вывод id сертифика/pub/secret key  по PIN
+  echo "Введите PIN COD":
+  pkcs11-tool --module /usr/lib/librtpkcs11ecp.so -Ol -p12345678	
+  rm  ~/gpg_batch > /dev/null 2>&1
+  touch ~/gpg_batch
+  echo "%echo Generating a OpenPGP key" >> ~/gpg_batch
+  echo "Key-Type: 1" >> ~/gpg_batch
+  echo "Key-Grip:" $keyid >> ~/gpg_batch
+  echo "Key-usage: sign,cert" >> ~/gpg_batch
+  echo "Name-Real: name real" >> ~/gpg_batch
+  echo "Name-Comment: name comment" >> ~/gpg_batch
+  echo "Name-Email: test@pochta.ru" >> ~/gpg_batch
+  echo "Passphrase: 12345678" >> ~/gpg_batch
+  echo "%commit" >> ~/gpg_batch
+  echo "%done" >> ~/gpg_batch
+  # create  gpg: /root/.gnupg/trustdb.gpg
+  gpg --list-keys
+  #запрос к карте , почемуто без этого пока не работает
+  gpg --card-status
+  #gpg: keybox '/home/vagrant/.gnupg/pubring.kbx' created
+  #gpg: /home/vagrant/.gnupg/trustdb.gpg: trustdb created
+  #create opengpg key based on token
+  gpg --batch --expert --full-generate-key  --passphrase 12345678 --pinentry-mode loopback  ~/gpg_batch
+  gpg --list-keys
+  #Name-Email or ID KEY from gpg --list-keys 
+  gpg --export -a 'test@pochta.ru' > ~/RPM-GPG-KEY-faleman
+  rpm --import ~/RPM-GPG-KEY-faleman
+  # rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
+  # %_gpg_name  '%{name}-%{version}-%{release} --> %{summary}\n'
+  touch /root/.rpmmacros
+  echo "%_gpg_name test@pochta.ru" > /root/.rpmmacros
+  rpmsign -addsign /home/vagrant/vboxshare/*.rpm
+  rpm --checksig /home/vagrant/vboxshare/*.rpm
+  SHELL
+
+  config.vm.synced_folder "c:/rpm", "/home/vagrant/vboxshare"
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--usb", "on"]
+    vb.customize ["modifyvm", :id, "--usbehci", "on"]
+    vb.customize ["modifyvm", :id, "--usbxhci", "on"]
+  end
+  # рекомендованно разделить
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ['usbfilter', 'add', '1', '--target', :id, '--name', 'rutoken', '--vendorid', '0x0a89', '--productid', '0x0030']
+    vb.customize ['usbfilter', 'add', '1', '--target', :id, '--name', 'rutoken', '--vendorid', '0x0529', '--productid', '0x0620']
+  end
+
+end
+
+#vagrant provision   нова настроить машину с помощью скриптов
+# windows app  kleopatra -> gpgex проверить подписанный пакет
