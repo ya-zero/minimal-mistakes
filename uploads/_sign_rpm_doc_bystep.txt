@@ -145,4 +145,3 @@ Certificate Object; type = X.509 cert
   label:      sept_29@pochta.ru
   subject:    DN: C=RU, ST=1, L=2, O=3, OU=4, CN=5/emailAddress=1@1.com
   ID:         01
-
