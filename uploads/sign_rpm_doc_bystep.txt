@@ -67,6 +67,7 @@ rpm --import RPM-GPG-KEY-faleman
 
 
 rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
+rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
    >>examples>>> gpg-pubkey-77b915ba-5d932ddb --> gpg(Joe Tester (with stupid passphrase) <test@pochta.ru>)
 
 
