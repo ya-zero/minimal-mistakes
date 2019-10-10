@@ -11,3 +11,7 @@ tags:
  
  2) Необходимые ресурсы
  ![]({{ site.baseurl }}/uploads/hwreqs.png "требуемые ресурсы")
+
+
+  проверка кластера elasticsearch 
+  curl -XGET 'localhost:9200/_cluster/health?pretty'
