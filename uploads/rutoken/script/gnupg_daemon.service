@@ -1,0 +1,13 @@
+[Unit]
+Description=gpg-agent start
+ 
+[Service]
+Type=forking
+User=root
+#ExecStart=/usr/bin/gpg-agent --homedir  /root/.gnupg/ --option /root/.gnupg/gpg-agent.conf  --daemon
+ExecStart=/usr/bin/gpg-agent  --daemon
+ExecReload=/usr/bin/gpgconf --reload gpg-agent
+#Restart=on-abort
+ 
+[Install]
+WantedBy=default.target
