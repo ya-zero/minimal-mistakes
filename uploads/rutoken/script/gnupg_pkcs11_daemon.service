@@ -1,0 +1,10 @@
+[Unit]
+Description=gnupg_pkcs11 start
+
+[Service]
+User=root
+Type=forking
+ExecStart=/usr/bin/gnupg-pkcs11-scd --daemon
+ 
+[Install]
+WantedBy=default.target
