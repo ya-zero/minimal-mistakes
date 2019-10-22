@@ -1,0 +1,69 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "generic/ubuntu1904"
+  config.vm.provision :shell , inline: <<-SHELL 
+  sudo su
+  echo "nameserver 1.1.1.1" > /etc/resolv.conf
+  export DEBIAN_FRONTEND=noninteractive
+  apt-get update 
+  apt-get -y install libpcsclite1 
+  apt-get -y install libccid 
+  apt-get -y install pcscd 
+  apt-get -y install opensc 
+  apt-get -y install pcsc-tools 
+  apt-get -y install gnupg-pkcs11-scd     
+  apt-get -y install rpm
+  apt-get -y install gnupg
+  apt-get -y install gpg-agent
+  apt-get -y install pinentry-tty
+  #прямая ссылка на проект rutoken
+  if ! [ -f ~/librtpkcs11ecp_1.9.15.0-1_amd64.deb ] ; then wget https://download.rutoken.ru/Rutoken/PKCS11Lib/1.9.15.0/Linux/x64/librtpkcs11ecp_1.9.15.0-1_amd64.deb   -P ~; fi
+  if ! dpkg -s librtpkcs11ecp | grep Status ; then dpkg -i ~/librtpkcs11ecp_1.9.15.0-1_amd64.deb ; fi 
+  #установит в  /usr/lib/
+  apt --fix-broken install -y
+  
+  
+  cp /home/vagrant/vboxshare/script/gnupg-pkcs11-scd.conf ~/.gnupg/
+   
+  cp /home/vagrant/vboxshare/script/gpg-agent.conf ~/.gnupg/
+  
+  cp /home/vagrant/vboxshare/script/gnupg_daemon.service  /etc/systemd/system/
+  
+  cp /home/vagrant/vboxshare/script/gnupg_pkcs11_daemon.service /etc/systemd/system/
+      
+  systemctl daemon-reload
+  systemctl enable gnupg_daemon
+  systemctl enable gnupg_pkcs11_daemon
+  systemctl start gnupg_daemon
+  systemctl start gnupg_pkcs11_daemon
+  
+  
+  cp  /home/vagrant/vboxshare/script/gen_opengpg.sh /home/vagrant/
+  
+  if ! [ -d /home/vagrant/vboxshare/rpm ]; then
+   mkdir /home/vagrant/vboxshare/rpm
+  fi
+  
+  if ! [ -d /home/vagrant/vboxshare/signed ]; then
+   mkdir /home/vagrant/vboxshare/signed
+  fi
+  
+  SHELL
+  
+  # пробросит текущий каталог
+  config.vm.synced_folder ".", "/home/vagrant/vboxshare" , create:true
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--usb", "on"]
+    vb.customize ["modifyvm", :id, "--usbehci", "on"]
+    vb.customize ["modifyvm", :id, "--usbxhci", "on"]
+  end
+  # рекомендованно разделить
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ['usbfilter', 'add', '1', '--target', :id, '--name', 'rutoken', '--vendorid', '0x0a89', '--productid', '0x0030']
+  end
+
+end
+
