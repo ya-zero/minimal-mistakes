@@ -26,18 +26,19 @@ categories:
    gpg-agent
 
 в домашней дериктории пользователя 
-
+```bash
 ./gnupg/gnupg-pkcs11-scd.conf
  debug-all
  verbose
  log-file /root/gnupg-pkcs11-scd.log
  providers p1
  provider-p1-library /usr/lib/librtpkcs11ecp.so 
-
+```
+```bash
 .gnupg/gpg-agent.conf
  scdaemon-program /usr/bin/gnupg-pkcs11-scd
  pinentry-program /usr/bin/pinentry-tty
-
+```
 5)
  gnupg-pkcs11-scd --daemon
  gpg-agent  --daemon (по идее будет запущен)  можно  сделать gpgconf --kill all
