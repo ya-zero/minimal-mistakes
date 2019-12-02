@@ -77,3 +77,11 @@ rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
 
 rpmsign -addsign ./*rpm
 
+
+
+p.s. 
+
+vagrant файл и скрипты доступны по ссылке
+https://github.com/ya-zero/ya-zero.github.io/tree/master/uploads/rutoken
+
+
