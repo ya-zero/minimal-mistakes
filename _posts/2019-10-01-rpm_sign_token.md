@@ -54,23 +54,23 @@ gpg-connect-agent  'SCD LEARN' /bye | grep KEY-FRIEDNLY  | awk '{print $3}'
  Key-usage: sign,cert
  Name-Real: name real
  Name-Comment: name comment
- Name-Email: test@pochta.ru
+ Name-Email: test@mail.ru
  #Passphrase: 12345678
  %commit
  %done
 
-что бы подписать нужен файл экпорт производиться по части описания Joe Tester (with stupid passphrase) <test@pochta.ru>
-gpg --export -a 'test@pochta.ru' > RPM-GPG-KEY-faleman
+что бы подписать нужен файл экпорт производиться по части описания Joe Tester (with stupid passphrase) <test@mail.ru>
+gpg --export -a 'test@mail.ru' > RPM-GPG-KEY-faleman
 
 rpm --import RPM-GPG-KEY-faleman
 
 
 rpm -q gpg-pubkey --qf '%{name}-%{version}-%{release} --> %{summary}\n'
-   >>examples>>> gpg-pubkey-77b915ba-5d932ddb --> gpg(Joe Tester (with stupid passphrase) <test@pochta.ru>)
+   >>examples>>> gpg-pubkey-77b915ba-5d932ddb --> gpg(Joe Tester (with stupid passphrase) <test@mail.ru>)
 
 
 /root/.rpmmacros
- %_gpg_name Joe Tester (with stupid passphrase) <sept_29@pochta.ru>
+ %_gpg_name Joe Tester (with stupid passphrase) <sept_29@mail.ru>
 
 rpmsign -addsign ./*rpm
 
