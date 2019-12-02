@@ -40,15 +40,17 @@ categories:
  pinentry-program /usr/bin/pinentry-tty
 ```
 5)
+```bash
  gnupg-pkcs11-scd --daemon
  gpg-agent  --daemon (по идее будет запущен)  можно  сделать gpgconf --kill all
  gpg-agent  --server
-
+```
 Для генерации opengpg ключа нужен KEY-FRIEDNLY  его можно взять из логов log-file /root/gnupg-pkcs11-scd.log 
-
+```bash
 gpg-connect-agent  'SCD LEARN' /bye | grep KEY-FRIEDNLY  | awk '{print $3}'
+```
 
-
+```bash
 %echo Generating a OpenPGP key
  Key-Type: 1
  Key-Grip: 88E23DFBAA20FA2F8D42A2F62C24E409E8417662
@@ -59,7 +61,7 @@ gpg-connect-agent  'SCD LEARN' /bye | grep KEY-FRIEDNLY  | awk '{print $3}'
  #Passphrase: 12345678
  %commit
  %done
-
+```
 что бы подписать нужен файл экпорт производиться по части описания Joe Tester (with stupid passphrase) <test@mail.ru>
 gpg --export -a 'test@mail.ru' > RPM-GPG-KEY-faleman
 
