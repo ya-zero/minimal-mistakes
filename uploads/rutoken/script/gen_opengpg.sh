@@ -46,8 +46,8 @@ touch /root/.rpmmacros
 echo "%_gpg_name" $namee  > /root/.rpmmacros
 
 
-gpg --export -a $namee > ~/RPM-GPG-KEY-russianpost
-rpm --import ~/RPM-GPG-KEY-russianpost
+gpg --export -a $namee > ~/RPM-GPG-KEY
+rpm --import ~/RPM-GPG-KEY
 ;;
 sign_rpm)
 echo "Добавление подписи /home/vagrant/vboxshare/rpm/*.rpm "
