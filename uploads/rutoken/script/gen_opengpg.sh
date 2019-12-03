@@ -51,7 +51,7 @@ rpm --import ~/RPM-GPG-KEY-russianpost
 ;;
 sign_rpm)
 echo "Добавление подписи /home/vagrant/vboxshare/rpm/*.rpm "
-#перед тем как переносить нужно проверить есть ли подпись. если нет , то выдать вернинг
+
 mv /home/vagrant/vboxshare/rpm/*.rpm /mnt
 rpmsign --addsign /mnt/*.rpm
 
