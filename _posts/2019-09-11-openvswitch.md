@@ -22,3 +22,20 @@ vm  xml  intreface examples
       <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
     </interface>
 ```
+
+```
+<network>
+  <name>default</name>
+  <uuid>5adf5e8e-bf47-441d-b76e-386f35cd6e23</uuid>
+  <forward mode='bridge'/>
+  <bridge name='ovs-br0'/>
+  <virtualport type='openvswitch'/>
+  <portgroup name='trunkPortGroup' default='yes'>
+    <vlan trunk='yes'>
+      <tag id='1069' nativeMode='untagged'/>
+      <tag id='1070'/>
+      <tag id='1071'/>
+    </vlan>
+  </portgroup>
+</network>
+```
