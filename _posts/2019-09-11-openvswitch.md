@@ -53,3 +53,7 @@ show ovs setting: ovs-vsctl show
 show port list: ovs-vsctl list port
 show port ovs-br0: ovs-vsctl list-ports ovs-br0
 ```
+
+
+ovs-vsctl set bridge <bridge> other-config:mac-table-size=<size>
+  
