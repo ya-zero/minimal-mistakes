@@ -1,11 +1,11 @@
 
 ---
-title: "As-Stats распределения трафика до AS по upstream "
+title: "openvswitch"
 date: 2019-01-23 09:00:00 +0000
 categories:
-  - as-stats
+  - ovs
 tags:
-  - netflow src-as dst-as upstream
+  - ovs openvswitch libvirt
 ---
 
 host machine
@@ -38,4 +38,16 @@ vm  xml  intreface examples
     </vlan>
   </portgroup>
 </network>
+```
+
+
+
+
+commands 
+
+```
+show fdb:    ovs-appctl fdb/show ovs-br0
+show ovs setting: ovs-vsctl show
+show port list: ovs-vsctl list port
+show port ovs-br0: ovs-vsctl list-ports ovs-br0
 ```
