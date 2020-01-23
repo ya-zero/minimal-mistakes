@@ -93,5 +93,11 @@ ovs-vswitchd.service                                                            
 ovsdb-server.service                                                               loaded active running   Open vSwitch Database Unit
 ```
 
-
+start vm 
+```
+64 bytes from 10.193.17.25: icmp_seq=29 ttl=64 time=0.032 ms
+64 bytes from 10.193.17.25: icmp_seq=37 ttl=64 time=0.292 ms
+64 bytes from 10.193.17.25: icmp_seq=38 ttl=64 time=0.075 ms
+64 bytes from 10.193.17.25: icmp_seq=39 ttl=64 time=0.050 ms
+```
 
