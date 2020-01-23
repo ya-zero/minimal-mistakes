@@ -86,3 +86,12 @@ actions: output enqueue set_vlan_vid set_vlan_pcp strip_vlan mod_dl_src mod_dl_d
 OFPT_GET_CONFIG_REPLY (xid=0x4): frags=normal miss_send_len=0
 ```
 
+openvswitch сервисы 
+```bash
+openvswitch-switch.service                                                         loaded active exited    Open vSwitch
+ovs-vswitchd.service                                                               loaded active running   Open vSwitch Forwarding Unit
+ovsdb-server.service                                                               loaded active running   Open vSwitch Database Unit
+```
+
+
+
