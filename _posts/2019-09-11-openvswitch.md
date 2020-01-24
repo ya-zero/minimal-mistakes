@@ -105,6 +105,8 @@ start vm
 ```
 ovs-vsctl  set port  ovs-br0 tag=1069 trunks=1070,1071 vlan_mode=native-untagged
 ovs-vsctl add-port   ovs-br0 ovs-vlan1070 tag=1070 -- set Interface ovs-vlan1070 type=internal
+ovs-vsctl add-port ovs-br0 ovs-vlan1069 tag=1069 -- set Interface ovs-vlan1069 type=internal
+ip add add 10.193.17.133/24 dev ovs-vlan1069
 ```
 
 
