@@ -7,7 +7,7 @@ tags:
   - quagga frrouting snmp agentx
 ---
 
-в snmpd.conf добавил (если нужно весь скину.)
+в snmpd.conf добавил
 ```bash
 agentAddress  udp:127.0.0.1:161
 agentXSocket    tcp:localhost:705
