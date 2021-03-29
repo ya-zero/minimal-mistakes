@@ -15,7 +15,7 @@ master agentx
 ```
 
 
-скачал и собрал netsnmp и собрал
+скачал и собрал netsnmp
 ```bash
 ./configure --enable-snmp
 ```
